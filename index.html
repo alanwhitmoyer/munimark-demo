@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MuniMark — Municipal Credit Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & TOKENS ─────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2744;
+  --navy-mid:#243354;
+  --steel:#2d5fa6;
+  --steel-light:#4577c4;
+  --gold:#b8921f;
+  --gold-light:#d4aa4a;
+  --cream:#f7f4ef;
+  --cream-dark:#ede9e1;
+  --paper:#faf9f6;
+  --ink:#1c1c1c;
+  --ink-mid:#3d3d3d;
+  --ink-light:#6b6b6b;
+  --rule:#c8c0b0;
+  --rule-light:#e2ddd5;
+  --mono:'DM Mono',monospace;
+  --serif:'Source Serif 4',Georgia,serif;
+  --display:'Playfair Display',Georgia,serif;
+}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:15px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ─── SHARED UTILITIES ───────────────────────────────────────────────────── */
+.eyebrow{
+  font-family:var(--mono);
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:0.75rem;
+}
+.section-headline{
+  font-family:var(--display);
+  font-size:clamp(1.7rem,3.5vw,2.4rem);
+  font-weight:700;
+  color:var(--navy);
+  line-height:1.2;
+  margin-bottom:0.75rem;
+}
+.section-sub{
+  font-size:0.95rem;
+  color:var(--ink-light);
+  max-width:540px;
+  line-height:1.75;
+  margin:0 auto;
+}
+.centered{text-align:center;}
+.section-pad{padding:5rem 2rem;}
+.inner{max-width:900px;margin:0 auto;}
+
+/* ─── NAV ────────────────────────────────────────────────────────────────── */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  background:rgba(26,39,68,0.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  padding:0 2rem;
+  height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav-logo{
+  font-family:var(--mono);
+  font-size:0.72rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:#fff;
+}
+.nav-logo span{color:var(--gold-light);}
+.nav-links{
+  display:flex;
+  gap:2rem;
+  list-style:none;
+}
+.nav-links a{
+  font-family:var(--mono);
+  font-size:0.6rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.45);
+  text-decoration:none;
+  transition:color 0.15s;
+}
+.nav-links a:hover{color:#fff;}
+.nav-cta{
+  font-family:var(--mono);
+  font-size:0.6rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--navy);
+  background:var(--gold-light);
+  padding:0.4rem 1rem;
+  text-decoration:none;
+  transition:background 0.15s;
+}
+.nav-cta:hover{background:#e0b84f;}
+
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+#hero{
+  background:var(--navy);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:7rem 2rem 5rem;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+#hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px);
+  background-size:64px 64px;
+  pointer-events:none;
+}
+.hero-top-rule{
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--gold) 70%,transparent);
+}
+.hero-wordmark{
+  font-family:var(--mono);
+  font-size:0.62rem;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.3);
+  margin-bottom:3rem;
+}
+.hero-wordmark span{color:var(--gold-light);}
+.hero-headline{
+  font-family:var(--display);
+  font-size:clamp(2.6rem,7vw,4.8rem);
+  font-weight:900;
+  color:#fff;
+  line-height:1.08;
+  max-width:780px;
+  margin-bottom:1.25rem;
+}
+.hero-headline em{
+  font-style:italic;
+  color:var(--gold-light);
+}
+.hero-sub{
+  font-family:var(--serif);
+  font-size:clamp(0.95rem,2vw,1.1rem);
+  color:rgba(255,255,255,0.5);
+  max-width:500px;
+  line-height:1.8;
+  margin-bottom:3rem;
+  font-weight:300;
+}
+.hero-btns{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-bottom:4rem;
+}
+.btn-gold{
+  font-family:var(--mono);
+  font-size:0.68rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--navy);
+  background:var(--gold-light);
+  border:none;
+  padding:0.9rem 2.2rem;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+  transition:background 0.2s;
+}
+.btn-gold:hover{background:#e0b84f;}
+.btn-ghost{
+  font-family:var(--mono);
+  font-size:0.68rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.55);
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.18);
+  padding:0.9rem 2.2rem;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+  transition:all 0.2s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
+.hero-badges{
+  display:flex;
+  gap:2rem;
+  flex-wrap:wrap;
+  justify-content:center;
+  border-top:1px solid rgba(255,255,255,0.07);
+  padding-top:2.5rem;
+}
+.hero-badge{
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+  font-family:var(--mono);
+  font-size:0.58rem;
+  letter-spacing:0.1em;
+  color:rgba(255,255,255,0.28);
+  text-transform:uppercase;
+}
+.badge-dot{
+  width:5px;height:5px;
+  border-radius:50%;
+  background:var(--gold);
+  opacity:0.6;
+  flex-shrink:0;
+}
+
+/* ─── STATS ──────────────────────────────────────────────────────────────── */
+#stats{
+  background:var(--cream);
+  padding:5rem 2rem;
+}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5px;
+  background:var(--rule);
+  border:1.5px solid var(--rule);
+  margin-top:3.5rem;
+}
+.stat-card{
+  background:var(--cream);
+  padding:2rem 1.75rem 1.75rem;
+  position:relative;
+  transition:background 0.2s;
+}
+.stat-card:hover{background:#fff;}
+.stat-rule{width:26px;height:2px;background:var(--gold);margin-bottom:1.1rem;}
+.stat-num{
+  font-family:var(--display);
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:700;
+  color:var(--navy);
+  line-height:1;
+  margin-bottom:0.4rem;
+}
+.stat-num .unit{font-size:1.2rem;color:var(--gold);}
+.stat-label{
+  font-family:var(--mono);
+  font-size:0.58rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:0.7rem;
+}
+.stat-desc{
+  font-size:0.83rem;
+  color:var(--ink-light);
+  line-height:1.6;
+}
+.stat-n{
+  position:absolute;
+  top:1.1rem;right:1.4rem;
+  font-family:var(--mono);
+  font-size:0.58rem;
+  color:var(--rule);
+}
+
+/* ─── PIPELINE ───────────────────────────────────────────────────────────── */
+#pipeline{
+  background:var(--paper);
+  padding:5rem 2rem 6rem;
+  border-top:1px solid var(--rule-light);
+  border-bottom:1px solid var(--rule-light);
+}
+.pipeline-wrap{
+  max-width:800px;
+  margin:0 auto;
+  position:relative;
+}
+.pipeline-wrap::before{
+  content:'';
+  position:absolute;
+  left:50%;top:0;bottom:0;
+  width:1.5px;
+  background:linear-gradient(to bottom,transparent,var(--rule) 6%,var(--rule) 94%,transparent);
+  transform:translateX(-50%);
+}
+.pipe-input{
+  display:flex;
+  justify-content:center;
+  margin-bottom:2.5rem;
+  position:relative;z-index:2;
+}
+.pipe-input-box{
+  background:var(--navy);
+  color:#fff;
+  padding:1rem 2.5rem;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.1);
+}
+.pipe-input-box .lbl{
+  font-family:var(--mono);
+  font-size:0.55rem;
+  letter-spacing:0.18em;
+  color:rgba(255,255,255,0.35);
+  text-transform:uppercase;
+  margin-bottom:0.25rem;
+}
+.pipe-input-box .val{
+  font-family:var(--display);
+  font-size:1rem;
+  font-weight:700;
+}
+.pipe-stage{
+  display:flex;
+  align-items:flex-start;
+  gap:0;
+  margin-bottom:2rem;
+  position:relative;
+}
+.pipe-stage.left{flex-direction:row;}
+.pipe-stage.right{flex-direction:row-reverse;}
+.pipe-dot{
+  position:absolute;
+  left:50%;top:1.1rem;
+  transform:translate(-50%,-50%);
+  width:11px;height:11px;
+  border-radius:50%;
+  background:var(--paper);
+  border:2px solid var(--rule);
+  z-index:2;
+  transition:border-color 0.2s,background 0.2s;
+}
+.pipe-stage:hover .pipe-dot{
+  border-color:var(--gold);
+  background:var(--gold-light);
+}
+.pipe-card{
+  flex:0 0 calc(50% - 2rem);
+  background:#fff;
+  border:1px solid var(--rule-light);
+  padding:1.25rem 1.5rem;
+  transition:border-color 0.2s,box-shadow 0.2s;
+  position:relative;
+}
+.pipe-stage:hover .pipe-card{
+  border-color:var(--gold-light);
+  box-shadow:0 2px 20px rgba(184,146,31,0.07);
+}
+.pipe-stage.left .pipe-card::after{
+  content:'';position:absolute;
+  right:-2rem;top:1.1rem;
+  width:2rem;height:1.5px;
+  background:var(--rule);
+}
+.pipe-stage.right .pipe-card::after{
+  content:'';position:absolute;
+  left:-2rem;top:1.1rem;
+  width:2rem;height:1.5px;
+  background:var(--rule);
+}
+.pipe-num{
+  font-family:var(--mono);
+  font-size:0.58rem;
+  letter-spacing:0.14em;
+  color:var(--gold);
+  margin-bottom:0.3rem;
+}
+.pipe-name{
+  font-family:var(--display);
+  font-size:1rem;
+  font-weight:700;
+  color:var(--navy);
+  margin-bottom:0.4rem;
+  line-height:1.2;
+}
+.pipe-desc{
+  font-size:0.8rem;
+  color:var(--ink-light);
+  line-height:1.6;
+}
+.pipe-pills{
+  margin-top:0.6rem;
+  display:flex;flex-wrap:wrap;gap:4px;
+}
+.pipe-pill{
+  font-family:var(--mono);
+  font-size:0.52rem;
+  letter-spacing:0.08em;
+  padding:2px 7px;
+  background:var(--cream-dark);
+  color:var(--ink-light);
+  border:1px solid var(--rule);
+}
+.pipe-card.qa{border-color:var(--steel-light);}
+.pipe-card.qa .pipe-num{color:var(--steel);}
+.pipe-outputs{
+  display:flex;
+  justify-content:center;
+  gap:1.5rem;
+  flex-wrap:wrap;
+  margin-top:2.5rem;
+  position:relative;z-index:2;
+}
+.pipe-out{
+  background:var(--navy);
+  border:1px solid var(--gold);
+  padding:1.25rem 2rem;
+  text-align:center;
+  min-width:190px;
+}
+.pipe-out-lbl{
+  font-family:var(--mono);
+  font-size:0.55rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--gold-light);
+  margin-bottom:0.3rem;
+}
+.pipe-out-name{
+  font-family:var(--display);
+  font-size:0.95rem;
+  font-weight:700;
+  color:#fff;
+}
+.pipe-out-desc{
+  font-size:0.73rem;
+  color:rgba(255,255,255,0.45);
+  margin-top:0.25rem;
+  line-height:1.5;
+}
+
+/* ─── SAMPLE OUTPUT ──────────────────────────────────────────────────────── */
+#sample{
+  background:var(--cream);
+  padding:5rem 2rem;
+}
+.memo-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  border:1px solid var(--rule);
+  background:var(--navy);
+  margin-bottom:0;
+}
+.meta-item{
+  flex:1 1 150px;
+  padding:0.75rem 1.25rem;
+  border-right:1px solid rgba(255,255,255,0.08);
+}
+.meta-item:last-child{border-right:none;}
+.meta-key{
+  font-family:var(--mono);
+  font-size:0.52rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.3);
+  margin-bottom:0.2rem;
+}
+.meta-val{
+  font-family:var(--mono);
+  font-size:0.7rem;
+  color:#fff;
+}
+.meta-val.monitor{color:var(--gold-light);}
+.iframe-shell{
+  border:1px solid var(--rule);
+  border-top:none;
+}
+.iframe-shell iframe{
+  width:100%;
+  height:800px;
+  border:none;
+  display:block;
+}
+.iframe-foot{
+  padding:0.65rem 1.25rem;
+  background:var(--cream-dark);
+  border:1px solid var(--rule);
+  border-top:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+.iframe-foot p{
+  font-family:var(--mono);
+  font-size:0.55rem;
+  letter-spacing:0.1em;
+  color:var(--ink-light);
+}
+.open-link{
+  font-family:var(--mono);
+  font-size:0.58rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--navy);
+  text-decoration:none;
+  border:1px solid var(--rule);
+  padding:0.35rem 0.85rem;
+  white-space:nowrap;
+  transition:background 0.15s;
+}
+.open-link:hover{background:var(--rule-light);}
+
+/* ─── STACK ──────────────────────────────────────────────────────────────── */
+#stack{
+  background:var(--navy-mid);
+  padding:5rem 2rem;
+}
+#stack .section-headline{color:#fff;}
+#stack .section-sub{color:rgba(255,255,255,0.4);font-weight:300;}
+.stack-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5px;
+  background:rgba(255,255,255,0.07);
+  border:1.5px solid rgba(255,255,255,0.07);
+  margin-top:3rem;
+  margin-bottom:1.5px;
+}
+.stack-block{
+  background:var(--navy);
+  padding:2rem;
+}
+.stack-col-lbl{
+  font-family:var(--mono);
+  font-size:0.56rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:1.25rem;
+  padding-bottom:0.75rem;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.stack-row{
+  display:flex;
+  align-items:baseline;
+  gap:0.75rem;
+  margin-bottom:0.75rem;
+}
+.stack-name{
+  font-family:var(--mono);
+  font-size:0.7rem;
+  color:#fff;
+  min-width:110px;
+}
+.stack-desc{
+  font-size:0.78rem;
+  color:rgba(255,255,255,0.38);
+  line-height:1.4;
+}
+.stack-full{
+  background:var(--navy);
+  padding:1.75rem 2rem;
+  border:1.5px solid rgba(255,255,255,0.07);
+  border-top:none;
+}
+.src-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem;
+  margin-top:1rem;
+}
+.src-chip{
+  font-family:var(--mono);
+  font-size:0.6rem;
+  letter-spacing:0.07em;
+  padding:0.38rem 0.85rem;
+  border:1px solid rgba(255,255,255,0.1);
+  color:rgba(255,255,255,0.5);
+  background:rgba(255,255,255,0.02);
+  display:flex;
+  align-items:center;
+  gap:0.4rem;
+}
+.src-free{
+  font-size:0.48rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--gold);
+  opacity:0.8;
+}
+
+/* ─── ACCESS ─────────────────────────────────────────────────────────────── */
+#access{
+  background:var(--cream);
+  padding:5rem 2rem 6rem;
+}
+.form-card{
+  max-width:520px;
+  margin:3rem auto 0;
+  background:#fff;
+  border:1px solid var(--rule);
+  padding:2.5rem;
+}
+.form-gold-rule{
+  width:30px;height:2px;
+  background:var(--gold);
+  margin:0 auto 2rem;
+}
+.field{margin-bottom:1.2rem;}
+.field label{
+  display:block;
+  font-family:var(--mono);
+  font-size:0.57rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--ink-light);
+  margin-bottom:0.38rem;
+}
+.field input,.field select{
+  width:100%;
+  padding:0.68rem 0.85rem;
+  font-family:var(--serif);
+  font-size:0.88rem;
+  color:var(--ink);
+  background:var(--cream);
+  border:1px solid var(--rule);
+  outline:none;
+  appearance:none;
+  transition:border-color 0.15s;
+}
+.field input:focus,.field select:focus{
+  border-color:var(--steel);
+  background:#fff;
+}
+.field input::placeholder{color:var(--rule);font-style:italic;}
+.two-up{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.submit-btn{
+  width:100%;
+  margin-top:0.5rem;
+  padding:0.9rem;
+  font-family:var(--mono);
+  font-size:0.66rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:#fff;
+  background:var(--navy);
+  border:none;
+  cursor:pointer;
+  transition:background 0.2s;
+}
+.submit-btn:hover{background:var(--navy-mid);}
+.form-note{
+  margin-top:1.1rem;
+  font-family:var(--mono);
+  font-size:0.56rem;
+  letter-spacing:0.08em;
+  color:var(--rule);
+  text-align:center;
+  line-height:1.6;
+}
+.success-state{
+  display:none;
+  text-align:center;
+  padding:2rem 0;
+}
+.success-mark{
+  font-size:1.8rem;
+  color:var(--gold);
+  margin-bottom:1rem;
+}
+.success-state h3{
+  font-family:var(--display);
+  font-size:1.25rem;
+  color:var(--navy);
+  margin-bottom:0.5rem;
+}
+.success-state p{
+  font-size:0.88rem;
+  color:var(--ink-light);
+  line-height:1.6;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────────────────────── */
+footer{
+  background:var(--navy);
+  padding:2rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:1rem;
+  border-top:3px solid var(--gold);
+}
+.footer-logo{
+  font-family:var(--mono);
+  font-size:0.65rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.3);
+}
+.footer-logo span{color:var(--gold-light);}
+.footer-links{
+  display:flex;
+  gap:1.5rem;
+}
+.footer-links a{
+  font-family:var(--mono);
+  font-size:0.58rem;
+  letter-spacing:0.1em;
+  color:rgba(255,255,255,0.3);
+  text-decoration:none;
+  transition:color 0.15s;
+}
+.footer-links a:hover{color:rgba(255,255,255,0.7);}
+.footer-disc{
+  width:100%;
+  font-family:var(--mono);
+  font-size:0.52rem;
+  letter-spacing:0.07em;
+  color:rgba(255,255,255,0.18);
+  border-top:1px solid rgba(255,255,255,0.07);
+  padding-top:1rem;
+  margin-top:0.5rem;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media(max-width:700px){
+  .stats-grid{grid-template-columns:1fr 1fr;}
+  .stack-grid{grid-template-columns:1fr;}
+  .two-up{grid-template-columns:1fr;}
+  .pipeline-wrap::before{left:20px;}
+  .pipe-stage{flex-direction:column !important;padding-left:48px;}
+  .pipe-card{flex:1 1 auto;width:100%;}
+  .pipe-dot{left:20px;}
+  .pipe-stage.left .pipe-card::after,
+  .pipe-stage.right .pipe-card::after{display:none;}
+  nav .nav-links{display:none;}
+}
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr;}
+  .meta-item{flex:1 1 100%;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span>MuniMark</span></div>
+  <ul class="nav-links">
+    <li><a href="#pipeline">How it works</a></li>
+    <li><a href="#sample">Sample output</a></li>
+    <li><a href="#stack">Tech</a></li>
+  </ul>
+  <a class="nav-cta" href="#access">Request access</a>
+</nav>
+
+<!-- ─── HERO ──────────────────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-top-rule"></div>
+  <p class="hero-wordmark"><span>MuniMark</span> &nbsp;·&nbsp; Municipal Credit Intelligence</p>
+  <h1 class="hero-headline">Institutional credit analysis,<br><em>automated.</em></h1>
+  <p class="hero-sub">MuniMark reads an Official Statement and produces a structured, source-cited credit memorandum in less than 10 minutes. Save hundreds of hours on keeping up with new issuance, odd lot hunting, and more, allowing you to focus on what really matters to clients.</p>
+  <div class="hero-btns">
+    <a class="btn-gold" href="#sample">See a sample analysis ↓</a>
+    <a class="btn-ghost" href="#access">Request access</a>
+  </div>
+  <div class="hero-badges">
+    <div class="hero-badge"><div class="badge-dot"></div>General obligation</div>
+    <div class="hero-badge"><div class="badge-dot"></div>Charter schools</div>
+    <div class="hero-badge"><div class="badge-dot"></div>Transportation</div>
+    <div class="hero-badge"><div class="badge-dot"></div>Utilities</div>
+    <div class="hero-badge"><div class="badge-dot"></div>More sectors in development</div>
+  </div>
+</section>
+
+<!-- ─── STATS ─────────────────────────────────────────────────────────────── -->
+<section id="stats" class="section-pad">
+  <div class="inner centered">
+    <p class="eyebrow">Why MuniMark</p>
+    <h2 class="section-headline">The same output. A fraction of the time.</h2>
+    <p class="section-sub">A thorough muni credit memo requires reading a 200-page OS, pulling audited financials from EMMA, running scenario math, and writing it all up in investment prose. MuniMark does that in one pipeline run.</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-n">01</span>
+        <div class="stat-rule"></div>
+        <div class="stat-num">8 hrs<span class="unit"> → 10 min</span></div>
+        <div class="stat-label">Time per credit memo</div>
+        <p class="stat-desc">A credit memo that takes an analyst most of a day to produce runs in about 10 minutes. The pipeline handles document parsing, financial extraction, research, and prose generation.</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-n">02</span>
+        <div class="stat-rule"></div>
+        <div class="stat-num">6</div>
+        <div class="stat-label">Specialized agents</div>
+        <p class="stat-desc">Document intelligence, structural analysis, financial modeling, research, downside scenarios, and a dedicated QA pass — each scoped to one task.</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-n">03</span>
+        <div class="stat-rule"></div>
+        <div class="stat-num">$0</div>
+        <div class="stat-label">In proprietary data</div>
+        <p class="stat-desc">The data layer runs on EMMA, FRED, Census ACS, BLS, FEMA, and Google News — all free public APIs. No Bloomberg terminal, no data license fees.</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-n">04</span>
+        <div class="stat-rule"></div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Source-cited output</div>
+        <p class="stat-desc">Every factual claim in the output has a bracketed source citation. A dedicated QA agent checks number consistency across all sections before the memo is finalized.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PIPELINE ──────────────────────────────────────────────────────────── -->
+<section id="pipeline" class="section-pad">
+  <div class="inner centered">
+    <p class="eyebrow">The pipeline</p>
+    <h2 class="section-headline">Six agents. One investment memo.</h2>
+    <p class="section-sub">Each analytical task runs in its own agent with a defined scope. Keeping them separate prevents context bleed across a long pipeline and makes the QA pass meaningful.</p>
+
+    <div class="pipeline-wrap" style="margin-top:4rem;">
+      <div class="pipe-input">
+        <div class="pipe-input-box">
+          <div class="lbl">Inputs</div>
+          <div class="val">Official Statement + EMMA Filings</div>
+        </div>
+      </div>
+
+      <div class="pipe-stage left">
+        <div class="pipe-dot"></div>
+        <div class="pipe-card">
+          <div class="pipe-num">AGENT 01</div>
+          <div class="pipe-name">Document Intelligence</div>
+          <div class="pipe-desc">Parses the Official Statement, extracts bond structure, security pledge, covenant terms, and flags structural anomalies before any analysis begins.</div>
+          <div class="pipe-pills"><span class="pipe-pill">Official Statement</span><span class="pipe-pill">EMMA</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-stage right">
+        <div class="pipe-dot"></div>
+        <div class="pipe-card">
+          <div class="pipe-num">AGENT 02</div>
+          <div class="pipe-name">Structural Analysis</div>
+          <div class="pipe-desc">Evaluates security pledge, flow of funds, debt service structure, and covenant headroom. Identifies structural risk flags for the analyst's review.</div>
+          <div class="pipe-pills"><span class="pipe-pill">Bond Covenants</span><span class="pipe-pill">Debt Schedule</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-stage left">
+        <div class="pipe-dot"></div>
+        <div class="pipe-card">
+          <div class="pipe-num">AGENT 03</div>
+          <div class="pipe-name">Financial Analysis</div>
+          <div class="pipe-desc">Calculates coverage ratios, leverage metrics, and liquidity indicators. Builds the five-year trend table from audited financial statements.</div>
+          <div class="pipe-pills"><span class="pipe-pill">Audited Financials</span><span class="pipe-pill">EMMA Filings</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-stage right">
+        <div class="pipe-dot"></div>
+        <div class="pipe-card">
+          <div class="pipe-num">AGENT 04</div>
+          <div class="pipe-name">Research & Context</div>
+          <div class="pipe-desc">Pulls issuer demographics, economic data, news coverage, and competitive landscape from public APIs — FRED, Census ACS, BLS, FEMA, and Google News.</div>
+          <div class="pipe-pills"><span class="pipe-pill">FRED</span><span class="pipe-pill">Census ACS</span><span class="pipe-pill">BLS</span><span class="pipe-pill">FEMA</span><span class="pipe-pill">News RSS</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-stage left">
+        <div class="pipe-dot"></div>
+        <div class="pipe-card">
+          <div class="pipe-num">AGENT 05</div>
+          <div class="pipe-name">Downside Scenario Modeling</div>
+          <div class="pipe-desc">Stress-tests the credit under base, adverse, and severe scenarios — modeling covenant compression, coverage deterioration, and debt service risk.</div>
+          <div class="pipe-pills"><span class="pipe-pill">Financial Model</span><span class="pipe-pill">Covenant Terms</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-stage right">
+        <div class="pipe-dot"></div>
+        <div class="pipe-card qa">
+          <div class="pipe-num" style="color:var(--steel);">AGENT 06</div>
+          <div class="pipe-name">QA Verification Pass</div>
+          <div class="pipe-desc">Before final output, checks number consistency across all sections, flags unsourced claims, verifies covenant arithmetic, and surfaces any contradictions in the research.</div>
+          <div class="pipe-pills"><span class="pipe-pill">All agent outputs</span></div>
+        </div>
+      </div>
+
+      <div class="pipe-outputs">
+        <div class="pipe-out">
+          <div class="pipe-out-lbl">Output A</div>
+          <div class="pipe-out-name">Credit Investment Memo</div>
+          <div class="pipe-out-desc">Full structured memo in professional investment prose — 15+ sections, fully sourced</div>
+        </div>
+        <div class="pipe-out">
+          <div class="pipe-out-lbl">Output B</div>
+          <div class="pipe-out-name">Pitch Card</div>
+          <div class="pipe-out-desc">One-page summary — key metrics, top risks, buy/monitor/pass recommendation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SAMPLE OUTPUT ─────────────────────────────────────────────────────── -->
+<section id="sample" class="section-pad">
+  <div class="inner centered">
+    <p class="eyebrow">Sample output</p>
+    <h2 class="section-headline">A real credit memo, from a real deal</h2>
+    <p class="section-sub">Produced from the Official Statement of the City of Ladysmith, Wisconsin's 2026A GO Notes. One pipeline run, no manual editing afterward.</p>
+    <div style="margin-top:2.5rem;text-align:left;">
+      <div class="memo-meta">
+        <div class="meta-item"><div class="meta-key">Issuer</div><div class="meta-val">City of Ladysmith, WI</div></div>
+        <div class="meta-item"><div class="meta-key">Series</div><div class="meta-val">GO Notes 2026A</div></div>
+        <div class="meta-item"><div class="meta-key">Par Amount</div><div class="meta-val">$3,235,000</div></div>
+        <div class="meta-item"><div class="meta-key">Sector</div><div class="meta-val">General Obligation · WI</div></div>
+        <div class="meta-item"><div class="meta-key">Recommendation</div><div class="meta-val monitor">⬤ Monitor</div></div>
+      </div>
+      <div class="iframe-shell">
+        <iframe src="https://alanwhitmoyer.github.io/munimark-demo/ladysmith_credit_memo_html.html"
+          title="City of Ladysmith Credit Investment Memorandum"
+          loading="lazy" scrolling="yes"></iframe>
+      </div>
+      <div class="iframe-foot">
+        <p>Sample output — for demonstration purposes only. Not investment advice.</p>
+        <a class="open-link" href="https://alanwhitmoyer.github.io/munimark-demo/ladysmith_credit_memo_html.html" target="_blank">Open full memo ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STACK ─────────────────────────────────────────────────────────────── -->
+<section id="stack" class="section-pad">
+  <div class="inner centered">
+    <p class="eyebrow" style="color:var(--gold);">Under the hood</p>
+    <h2 class="section-headline">Built on public infrastructure</h2>
+    <p class="section-sub">The data layer runs entirely on free government APIs. Compute costs aside, there are no ongoing data expenses to run this.</p>
+    <div class="stack-grid">
+      <div class="stack-block">
+        <div class="stack-col-lbl">Core stack</div>
+        <div class="stack-row"><span class="stack-name">Python</span><span class="stack-desc">Backend orchestration and agent logic</span></div>
+        <div class="stack-row"><span class="stack-name">FastAPI</span><span class="stack-desc">REST API layer and pipeline endpoints</span></div>
+        <div class="stack-row"><span class="stack-name">Claude API</span><span class="stack-desc">Powers all seven analytical agents</span></div>
+        <div class="stack-row"><span class="stack-name">PyMuPDF</span><span class="stack-desc">PDF parsing and text extraction</span></div>
+        <div class="stack-row"><span class="stack-name">python-docx</span><span class="stack-desc">Structured memo output generation</span></div>
+        <div class="stack-row"><span class="stack-name">React</span><span class="stack-desc">Frontend upload and review interface</span></div>
+      </div>
+      <div class="stack-block">
+        <div class="stack-col-lbl">Architecture</div>
+        <div class="stack-row" style="align-items:flex-start;">
+          <span class="stack-name" style="padding-top:2px;">Multi-agent</span>
+          <span class="stack-desc">Each agent scoped to one analytical task, preventing context drift across a long pipeline</span>
+        </div>
+        <div class="stack-row" style="margin-top:0.75rem;align-items:flex-start;">
+          <span class="stack-name" style="padding-top:2px;">Orchestrator</span>
+          <span class="stack-desc">Central coordinator passes outputs between agents sequentially, maintaining shared document state</span>
+        </div>
+        <div class="stack-row" style="margin-top:0.75rem;align-items:flex-start;">
+          <span class="stack-name" style="padding-top:2px;">QA pass</span>
+          <span class="stack-desc">Dedicated verification agent checks number consistency, sourcing, and internal logic before any output</span>
+        </div>
+      </div>
+    </div>
+    <div class="stack-full">
+      <div class="stack-col-lbl" style="margin-bottom:0;">External data sources — all free, all public</div>
+      <div class="src-chips">
+        <div class="src-chip">EMMA / MSRB <span class="src-free">free</span></div>
+        <div class="src-chip">FRED (St. Louis Fed) <span class="src-free">free</span></div>
+        <div class="src-chip">Census ACS <span class="src-free">free</span></div>
+        <div class="src-chip">BLS <span class="src-free">free</span></div>
+        <div class="src-chip">FEMA NFHL <span class="src-free">free</span></div>
+        <div class="src-chip">Google News RSS <span class="src-free">free</span></div>
+        <div class="src-chip">SEC EDGAR <span class="src-free">free</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ACCESS ────────────────────────────────────────────────────────────── -->
+<section id="access" class="section-pad">
+  <div class="inner centered">
+    <p class="eyebrow">Private beta</p>
+    <h2 class="section-headline">Request <em style="font-style:italic;color:var(--gold);">early access</em></h2>
+    <p class="section-sub">MuniMark is in private beta. Leave your details and I'll follow up to walk you through it.</p>
+    <div class="form-card">
+      <div class="form-gold-rule"></div>
+      <!-- Replace YOUR_FORMSPREE_ID with your Formspree endpoint ID -->
+      <form id="access-form" action="https://formspree.io/f/mreoyayl" method="POST">
+        <div class="two-up">
+          <div class="field">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" name="first_name" placeholder="Jane" required>
+          </div>
+          <div class="field">
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" name="last_name" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Work email</label>
+          <input type="email" id="email" name="email" placeholder="jane@fundname.com" required>
+        </div>
+        <div class="two-up">
+          <div class="field">
+            <label for="firm">Firm / organization</label>
+            <input type="text" id="firm" name="firm" placeholder="Optional">
+          </div>
+          <div class="field">
+            <label for="role">Role</label>
+            <select id="role" name="role">
+              <option value="" disabled selected>Select...</option>
+              <option>Portfolio manager</option>
+              <option>Credit analyst</option>
+              <option>Financial advisor</option>
+              <option>Recruiter / hiring manager</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">Request access →</button>
+
+      </form>
+      <div class="success-state" id="success">
+        <div class="success-mark">✦</div>
+        <h3>Request received</h3>
+        <p>I'll follow up shortly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-logo"><span>MuniMark</span> &nbsp;·&nbsp; Municipal Credit Intelligence</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/alan-whitmoyer" target="_blank">LinkedIn</a>
+    <a href="#pipeline">How it works</a>
+    <a href="#access">Contact</a>
+  </div>
+  <div class="footer-disc">Sample output shown for demonstration purposes only. Not investment advice. MuniMark is a private project and is not affiliated with any registered investment advisor.</div>
+</footer>
+
+<script>
+const form = document.getElementById('access-form');
+const success = document.getElementById('success');
+form.addEventListener('submit', async function(e){
+  e.preventDefault();
+  const data = new FormData(form);
+  try{
+    const res = await fetch(form.action,{method:'POST',body:data,headers:{Accept:'application/json'}});
+    if(res.ok){
+      form.style.display='none';
+      success.style.display='block';
+    }
+  }catch(err){
+    form.style.display='none';
+    success.style.display='block';
+  }
+});
+</script>
+</body>
+</html>
