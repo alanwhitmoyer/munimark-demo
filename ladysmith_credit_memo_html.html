@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit Investment Memorandum — City of Ladysmith, WI | Series 2026A GO Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── DESIGN SYSTEM ──────────────────────────────────────────────────────── */
+:root {
+  --navy:        #1a2744;
+  --navy-mid:    #243354;
+  --steel:       #2d5fa6;
+  --steel-light: #4577c4;
+  --gold:        #b8921f;
+  --gold-light:  #d4aa4a;
+  --cream:       #f7f4ef;
+  --cream-dark:  #ede9e1;
+  --paper:       #faf9f6;
+  --ink:         #1c1c1c;
+  --ink-mid:     #3d3d3d;
+  --ink-light:   #6b6b6b;
+  --rule:        #c8c0b0;
+  --rule-light:  #e2ddd5;
+  --flag-bg:     #fdf3e0;
+  --flag-border: #c8870a;
+  --flag-text:   #7a4f00;
+  --good-bg:     #edf6ee;
+  --good-border: #3a8c44;
+  --good-text:   #1e5c25;
+  --warn-bg:     #fff8ed;
+  --warn-text:   #8b4d00;
+  --mono:        'DM Mono', monospace;
+  --serif:       'Source Serif 4', Georgia, serif;
+  --display:     'Playfair Display', Georgia, serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── PRINT BUTTON ───────────────────────────────────────────────────────── */
+.print-btn {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  background: var(--navy);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.print-btn:hover { opacity: 1; }
+
+/* ─── SIDEBAR NAV ────────────────────────────────────────────────────────── */
+.sidebar {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: 220px;
+  background: var(--navy);
+  padding: 2.5rem 0 2rem;
+  overflow-y: auto;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-logo {
+  padding: 0 1.5rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  margin-bottom: 1.5rem;
+}
+.sidebar-logo .org { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.45); text-transform: uppercase; }
+.sidebar-logo .title { font-family: var(--display); font-size: 1.05rem; color: white; line-height: 1.3; margin-top: 0.3rem; }
+.nav-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; color: rgba(255,255,255,0.3); text-transform: uppercase; padding: 0 1.5rem 0.5rem; }
+.nav-link {
+  display: block;
+  padding: 0.42rem 1.5rem;
+  font-family: var(--serif);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.62);
+  text-decoration: none;
+  transition: all 0.15s;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+.nav-link:hover, .nav-link.active {
+  color: white;
+  border-left-color: var(--gold-light);
+  background: rgba(255,255,255,0.06);
+}
+.nav-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 1rem 1.5rem; }
+.sidebar-recommend {
+  margin-top: auto;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.sidebar-recommend .label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); text-transform: uppercase; }
+.sidebar-recommend .verdict { font-family: var(--display); font-size: 1.4rem; font-weight: 700; color: var(--gold-light); letter-spacing: 0.04em; }
+
+/* ─── MAIN LAYOUT ────────────────────────────────────────────────────────── */
+.main { margin-left: 220px; }
+
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+.hero {
+  background: var(--navy);
+  padding: 5rem 5rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 60% 80% at 100% 50%, rgba(45,95,166,0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 0% 80%, rgba(184,146,31,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  color: white;
+  line-height: 1.15;
+  position: relative;
+  max-width: 700px;
+}
+.hero-subtitle {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.55);
+  margin-top: 0.75rem;
+  position: relative;
+  font-style: italic;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 3.5rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  border-left: 1px solid rgba(255,255,255,0.15);
+  position: relative;
+}
+.hero-stat {
+  padding: 1.4rem 1.6rem;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.hero-stat .hs-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.38); text-transform: uppercase; margin-bottom: 0.35rem; }
+.hero-stat .hs-value { font-family: var(--display); font-size: 1.15rem; font-weight: 700; color: white; line-height: 1.2; }
+.hero-stat .hs-sub { font-size: 0.72rem; color: rgba(255,255,255,0.45); margin-top: 0.2rem; }
+.hero-stat.gold .hs-value { color: var(--gold-light); }
+
+/* ─── RECOMMENDATION BANNER ─────────────────────────────────────────────── */
+.rec-banner {
+  background: var(--navy-mid);
+  border-left: 5px solid var(--gold);
+  padding: 1.6rem 5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.rec-verdict {
+  font-family: var(--display);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold-light);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.rec-dash { color: rgba(255,255,255,0.25); font-size: 1.5rem; }
+.rec-text { font-family: var(--serif); font-size: 0.92rem; color: rgba(255,255,255,0.72); line-height: 1.6; }
+.rec-text strong { color: white; }
+
+/* ─── CONTENT SECTIONS ───────────────────────────────────────────────────── */
+.content { padding: 0 5rem; background: var(--paper); }
+
+.section {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--rule-light);
+}
+.section:last-child { border-bottom: none; }
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.section-number {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  padding-top: 0.15rem;
+}
+.section-title {
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 3rem;
+  background: var(--gold);
+  margin-top: 0.5rem;
+}
+
+.subsection { margin-top: 2rem; }
+.subsection-title {
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--steel);
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+p { margin-bottom: 1rem; color: var(--ink-mid); }
+p:last-child { margin-bottom: 0; }
+
+strong { color: var(--ink); font-weight: 600; }
+
+/* ─── FLAGS & CALLOUTS ───────────────────────────────────────────────────── */
+.flag {
+  display: inline;
+  background: var(--flag-bg);
+  color: var(--flag-text);
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.1em 0.4em;
+  border-left: 3px solid var(--flag-border);
+  margin-right: 0.3em;
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+}
+
+.flag-block {
+  background: var(--flag-bg);
+  border-left: 4px solid var(--flag-border);
+  padding: 1rem 1.25rem;
+  margin: 1.2rem 0;
+  border-radius: 0 4px 4px 0;
+}
+.flag-block .flag-label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--flag-border);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+.flag-block p { color: var(--ink-mid); margin: 0; font-size: 0.9rem; }
+
+.good-block {
+  background: var(--good-bg);
+  border-left: 4px solid var(--good-border);
+  padding: 0.9rem 1.25rem;
+  margin: 1rem 0;
+  border-radius: 0 4px 4px 0;
+}
+.good-block p { color: var(--good-text); margin: 0; font-size: 0.9rem; }
+
+/* ─── TABLES ─────────────────────────────────────────────────────────────── */
+.table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.855rem;
+  line-height: 1.45;
+}
+th {
+  background: var(--navy);
+  color: white;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 500;
+}
+th.right, td.right { text-align: right; }
+th.center, td.center { text-align: center; }
+td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--rule-light);
+  color: var(--ink-mid);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: var(--cream); }
+tr:nth-child(odd) td { background: white; }
+tr.flag-row td { background: var(--flag-bg) !important; color: var(--flag-text); font-weight: 500; }
+tr.good-row td { background: var(--good-bg) !important; color: var(--good-text); }
+tr.head-row td {
+  background: var(--navy-mid) !important;
+  color: rgba(255,255,255,0.8);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+td.label { font-weight: 600; color: var(--navy); }
+td.mono { font-family: var(--mono); font-size: 0.82rem; }
+td.flag-cell { color: var(--flag-text); font-weight: 600; }
+.table-note {
+  font-family: var(--serif);
+  font-size: 0.78rem;
+  color: var(--ink-light);
+  font-style: italic;
+  margin-top: 0.6rem;
+  line-height: 1.5;
+}
+
+/* ─── METRICS GRID ───────────────────────────────────────────────────────── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule-light);
+  border: 1px solid var(--rule-light);
+  margin: 1.5rem 0;
+}
+.metric-card {
+  background: white;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+}
+.metric-card .mc-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.13em;
+  color: var(--ink-light);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.metric-card .mc-value {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.metric-card .mc-bench {
+  font-size: 0.72rem;
+  color: var(--ink-light);
+  margin-top: 0.35rem;
+  font-style: italic;
+}
+.metric-card.flag-card { background: var(--flag-bg); }
+.metric-card.flag-card .mc-value { color: var(--flag-text); }
+.metric-card.good-card { background: var(--good-bg); }
+.metric-card.good-card .mc-value { color: var(--good-text); }
+
+/* ─── STRENGTHS / RISKS GRID ─────────────────────────────────────────────── */
+.sr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+.sr-col-title {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.5rem;
+}
+.str-title { background: var(--good-bg); color: var(--good-text); border-left: 4px solid var(--good-border); }
+.rsk-title { background: var(--flag-bg); color: var(--flag-text); border-left: 4px solid var(--flag-border); }
+
+.sr-item {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--rule-light);
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.55;
+}
+.sr-item:last-child { border-bottom: none; }
+.sr-num {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  min-width: 1.4rem;
+  padding-top: 0.15rem;
+}
+.str-num { color: var(--good-border); }
+.rsk-num { color: var(--flag-border); }
+
+/* ─── SENSITIVITY BARS ───────────────────────────────────────────────────── */
+.sens-bar-wrap { display: flex; align-items: center; gap: 0.8rem; }
+.sens-bar-track { flex: 1; height: 6px; background: var(--rule-light); border-radius: 3px; overflow: hidden; }
+.sens-bar-fill { height: 100%; border-radius: 3px; transition: width 0.3s; }
+.sens-bar-fill.good { background: var(--good-border); }
+.sens-bar-fill.warn { background: var(--gold); }
+.sens-bar-fill.bad { background: #c0392b; }
+.sens-pct { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-light); min-width: 3.5rem; text-align: right; }
+
+/* ─── QUOTE BLOCK ────────────────────────────────────────────────────────── */
+.pledge-block {
+  background: var(--navy);
+  color: rgba(255,255,255,0.85);
+  padding: 2rem 2.5rem;
+  margin: 1.5rem 0;
+  position: relative;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+.pledge-block::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.3rem; left: 1rem;
+  font-family: var(--display);
+  font-size: 5rem;
+  color: var(--gold);
+  opacity: 0.4;
+  line-height: 1;
+}
+.pledge-source {
+  display: block;
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+/* ─── RECOMMENDATION SECTION ─────────────────────────────────────────────── */
+.rec-section { background: var(--navy); padding: 4rem 5rem; }
+.rec-section .section-title { color: white; }
+.rec-section .section-title::after { background: var(--gold); }
+.rec-section .section-number { color: var(--gold-light); }
+.rec-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.rec-pillar {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-top: 3px solid var(--gold);
+  padding: 1.5rem;
+}
+.rec-pillar .rp-num {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.rec-pillar .rp-title {
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.8rem;
+  line-height: 1.35;
+}
+.rec-pillar p { color: rgba(255,255,255,0.62); font-size: 0.85rem; line-height: 1.65; }
+
+.monitor-conditions {
+  background: rgba(184,146,31,0.12);
+  border: 1px solid rgba(184,146,31,0.3);
+  border-top: 3px solid var(--gold);
+  padding: 1.5rem 2rem;
+  margin-top: 2.5rem;
+}
+.mc-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; color: var(--gold-light); text-transform: uppercase; margin-bottom: 0.8rem; }
+.mc-list { list-style: none; }
+.mc-list li {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.65);
+  font-size: 0.87rem;
+  display: flex;
+  gap: 0.8rem;
+}
+.mc-list li:last-child { border-bottom: none; }
+.mc-list li::before { content: '→'; color: var(--gold-light); font-family: var(--mono); flex-shrink: 0; }
+
+/* ─── PITCH CARD ─────────────────────────────────────────────────────────── */
+.pitch-card {
+  background: white;
+  border: 1px solid var(--rule);
+  margin: 3rem 0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+.pc-header {
+  background: var(--navy);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pc-header-left .pc-org { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.45); text-transform: uppercase; }
+.pc-header-left .pc-name { font-family: var(--display); font-size: 1.3rem; font-weight: 700; color: white; }
+.pc-header-right { text-align: right; }
+.pc-header-right .pc-rec-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.35); text-transform: uppercase; }
+.pc-header-right .pc-rec { font-family: var(--display); font-size: 1.6rem; font-weight: 900; color: var(--gold-light); }
+
+.pc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-bottom: 1px solid var(--rule-light);
+}
+.pc-cell {
+  padding: 1rem 1.25rem;
+  border-right: 1px solid var(--rule-light);
+}
+.pc-cell:last-child { border-right: none; }
+.pc-cell .pc-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; color: var(--ink-light); text-transform: uppercase; margin-bottom: 0.3rem; }
+.pc-cell .pc-val { font-family: var(--display); font-size: 1.05rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
+.pc-cell .pc-sub { font-size: 0.7rem; color: var(--ink-light); margin-top: 0.2rem; }
+.pc-cell.pc-flag .pc-val { color: var(--flag-text); }
+
+.pc-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+}
+.pc-panel {
+  padding: 1.25rem 1.5rem;
+  border-right: 1px solid var(--rule-light);
+}
+.pc-panel:last-child { border-right: none; }
+.pc-panel-title {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule-light);
+}
+.pc-panel.str .pc-panel-title { color: var(--good-border); }
+.pc-panel.rsk .pc-panel-title { color: var(--flag-border); }
+.pc-panel.mkt .pc-panel-title { color: var(--steel); }
+
+.pc-item { display: flex; gap: 0.6rem; font-size: 0.8rem; color: var(--ink-mid); padding: 0.35rem 0; border-bottom: 1px solid var(--rule-light); line-height: 1.45; }
+.pc-item:last-child { border-bottom: none; }
+.pc-item-num { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; min-width: 1.1rem; }
+.pc-panel.str .pc-item-num { color: var(--good-border); }
+.pc-panel.rsk .pc-item-num { color: var(--flag-border); }
+
+.pc-mkt-row { display: flex; justify-content: space-between; padding: 0.35rem 0; font-size: 0.8rem; border-bottom: 1px solid var(--rule-light); }
+.pc-mkt-row:last-child { border-bottom: none; }
+.pc-mkt-label { color: var(--ink-light); }
+.pc-mkt-val { font-family: var(--mono); font-size: 0.78rem; color: var(--navy); font-weight: 500; }
+
+/* ─── ADDITIONAL CONSIDERATIONS ─────────────────────────────────────────── */
+.add-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.add-card {
+  padding: 1.2rem 1.4rem;
+  border: 1px solid var(--rule-light);
+  border-top: 3px solid var(--flag-border);
+  background: var(--flag-bg);
+}
+.add-card .ac-title {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--flag-border);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.add-card p { font-size: 0.85rem; color: var(--ink-mid); margin: 0; line-height: 1.6; }
+
+.unresolved-list { list-style: none; margin-top: 1rem; }
+.unresolved-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--rule-light);
+  font-size: 0.87rem;
+  color: var(--ink-mid);
+  display: flex;
+  gap: 1rem;
+}
+.unresolved-list li:last-child { border-bottom: none; }
+.ur-num { font-family: var(--mono); font-size: 0.7rem; color: var(--flag-border); min-width: 1.4rem; padding-top: 0.1rem; }
+
+/* ─── DISCLAIMER ─────────────────────────────────────────────────────────── */
+.disclaimer {
+  background: var(--cream-dark);
+  border-top: 1px solid var(--rule);
+  padding: 2.5rem 5rem;
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* ─── SCROLL PROGRESS ────────────────────────────────────────────────────── */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 220px; right: 0;
+  height: 2px;
+  background: var(--rule-light);
+  z-index: 200;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--gold);
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ─── EV TREND VISUAL ────────────────────────────────────────────────────── */
+.ev-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.6rem;
+  height: 120px;
+  padding: 1rem 0 0;
+  margin: 1.5rem 0;
+  border-bottom: 2px solid var(--rule-light);
+  position: relative;
+}
+.ev-bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.ev-bar {
+  width: 100%;
+  background: var(--steel-light);
+  border-radius: 2px 2px 0 0;
+  transition: background 0.2s;
+  position: relative;
+}
+.ev-bar:last-of-type { background: var(--navy); }
+.ev-bar-wrap:hover .ev-bar { background: var(--gold); }
+.ev-year { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-light); }
+.ev-label { font-family: var(--mono); font-size: 0.62rem; color: var(--navy); position: absolute; top: -1.2rem; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+
+/* ─── PRINT STYLES ───────────────────────────────────────────────────────── */
+@media print {
+  .sidebar, .print-btn, .progress-bar { display: none; }
+  .main { margin-left: 0; }
+  .hero { padding: 3rem; }
+  .content, .rec-section, .disclaimer { padding-left: 3rem; padding-right: 3rem; }
+  .section { page-break-inside: avoid; }
+}
+
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .progress-bar { left: 0; }
+  .hero { padding: 3rem 2rem; }
+  .content { padding: 0 2rem; }
+  .hero-grid { grid-template-columns: repeat(2, 1fr); }
+  .rec-banner { padding: 1.5rem 2rem; flex-direction: column; align-items: flex-start; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .rec-pillars { grid-template-columns: 1fr; }
+  .sr-grid { grid-template-columns: 1fr; }
+  .pc-grid { grid-template-columns: repeat(2, 1fr); }
+  .pc-bottom { grid-template-columns: 1fr; }
+  .add-grid { grid-template-columns: 1fr; }
+  .rec-section { padding: 3rem 2rem; }
+  .disclaimer { padding: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<button class="print-btn" onclick="window.print()">⬛ Print / Save PDF</button>
+
+<!-- ─── SIDEBAR NAV ────────────────────────────────────────────────────── -->
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <div class="org">Credit Research</div>
+    <div class="title">Ladysmith, WI<br>Series 2026A</div>
+  </div>
+  <div class="nav-label">Contents</div>
+  <a href="#exec" class="nav-link">Executive Summary</a>
+  <a href="#security" class="nav-link">Bond &amp; Security</a>
+  <a href="#covenants" class="nav-link">Covenant Summary</a>
+  <a href="#structure" class="nav-link">Structural Risk</a>
+  <a href="#background" class="nav-link">Issuer Background</a>
+  <a href="#taxbase" class="nav-link">Tax Base &amp; Fiscal</a>
+  <a href="#competitive" class="nav-link">Competitive Landscape</a>
+  <a href="#financial" class="nav-link">Financial Analysis</a>
+  <a href="#demographic" class="nav-link">Demographics</a>
+  <a href="#macro" class="nav-link">Market &amp; Macro</a>
+  <a href="#stress" class="nav-link">Stress Analysis</a>
+  <a href="#additional" class="nav-link">Additional Considerations</a>
+  <a href="#recommendation" class="nav-link">Recommendation</a>
+  <div class="nav-divider"></div>
+  <a href="#pitchcard" class="nav-link">Pitch Card</a>
+  <div class="sidebar-recommend">
+    <div class="label">Recommendation</div>
+    <div class="verdict">MONITOR</div>
+  </div>
+</nav>
+
+<!-- ─── MAIN ──────────────────────────────────────────────────────────── -->
+<div class="main">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Credit Investment Memorandum · April 3, 2026</div>
+    <div class="hero-title">City of Ladysmith, Wisconsin</div>
+    <div class="hero-subtitle">$3,235,000 General Obligation Promissory Notes, Series 2026A</div>
+    <div class="hero-grid">
+      <div class="hero-stat">
+        <div class="hs-label">Par Amount</div>
+        <div class="hs-value">$3,235,000</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-label">Final Maturity</div>
+        <div class="hs-value">March 1, 2046</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-label">Rated</div>
+        <div class="hs-value">S&amp;P AA / Stable</div>
+        <div class="hs-sub">Insured (Assured Guaranty) · Underlying: NOT RATED</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-label">Sector</div>
+        <div class="hs-value">General Obligation</div>
+        <div class="hs-sub">Unlimited Tax Pledge · Wisconsin</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-label">Delivery Date</div>
+        <div class="hs-value">April 13, 2026</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-label">Tax Status</div>
+        <div class="hs-value">Fed Tax-Exempt</div>
+        <div class="hs-sub">Not AMT · Wisconsin taxable · Bank-qualified</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hs-label">Use of Proceeds</div>
+        <div class="hs-value">Street &amp; Water</div>
+        <div class="hs-sub">$3,152,250 to Construction Fund</div>
+      </div>
+      <div class="hero-stat gold">
+        <div class="hs-label">Recommendation</div>
+        <div class="hs-value">MONITOR</div>
+        <div class="hs-sub">Sound structure · Operational surveillance required</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REC BANNER -->
+  <div class="rec-banner">
+    <div class="rec-verdict">MONITOR</div>
+    <div class="rec-dash">—</div>
+    <div class="rec-text">The constitutional unlimited tax levy provides <strong>structural invulnerability to bond payment default</strong>; however, persistent audit material weaknesses, sewer enterprise fund deterioration, anticipated additional debt issuance, and unfavorable demographic trends collectively warrant <strong>active surveillance</strong> of the General Fund's operating trajectory.</div>
+  </div>
+
+  <!-- ─── CONTENT ───────────────────────────────────────────────────────── -->
+  <div class="content">
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section" id="exec">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2 class="section-title">Executive Summary</h2>
+      </div>
+      <p>The City of Ladysmith, Wisconsin (population approximately 3,150), a municipal corporation in Rusk County in the state's northern region, is issuing $3,235,000 of General Obligation Promissory Notes, Series 2026A, dated April 13, 2026, with proceeds directed toward street and water treatment plant improvements. The Notes are secured by the City's pledge of its full faith, credit, and resources, together with a direct, annual, irrepealable levy on all taxable property in the City without limitation as to rate or amount — a constitutional protection that renders the GO debt service mechanism structurally immune to the revenue volatility and coverage covenants that drive credit stress in revenue-backed municipal sectors.</p>
+      <p>This memorandum recommends a <strong>MONITOR</strong> designation rather than an outright BUY, reflecting the bond's structural strength against three operational credit concerns that merit ongoing observation:</p>
+
+      <div class="flag-block">
+        <div class="flag-label">⚑ Flag 1</div>
+        <p>Repeat material weaknesses in three consecutive audit findings (segregation of duties, material audit adjustments required, and reliance on auditor for GAAP statement preparation).</p>
+      </div>
+      <div class="flag-block">
+        <div class="flag-label">⚑ Flag 2</div>
+        <p>A Sewer enterprise fund carrying a ($978,081) unrestricted net position deficit with $1,350,684 in outstanding interfund loans from the General Fund.</p>
+      </div>
+      <div class="flag-block">
+        <div class="flag-label">⚑ Flag 3</div>
+        <p>Continuing disclosure non-compliance in three of the past five years — patterns inconsistent with the highest standards of municipal governance for a long-dated, 20-year obligation.</p>
+      </div>
+    </div>
+
+    <!-- BOND AND SECURITY DESCRIPTION -->
+    <div class="section" id="security">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Bond &amp; Security Description</h2>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Security Pledge</div>
+        <div class="pledge-block">
+          "The full faith, credit and resources of the City will be irrevocably pledged for the prompt payment of the principal and interest on the Notes, and for that purpose there is hereby levied on all taxable property of the City a direct, annual, irrepealable tax in amounts sufficient to pay such principal and interest as they respectively mature, which tax shall be without limitation as to rate or amount."
+          <span class="pledge-source">Award Resolution, March 23, 2026 · Official Statement, p.3</span>
+        </div>
+        <p>This pledge invokes Article VIII, Section 3 of the Wisconsin Constitution, which mandates that GO debt service be levied and collected regardless of any other fiscal constraint. Wisconsin Statutes §66.0602 explicitly exempts GO debt service for notes authorized after July 1, 2005 — which includes Series 2026A — from the statutory property tax levy limits applicable to other municipal spending. No debt service reserve fund is provided.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Structure &amp; Flow of Funds</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Item</th><th>Amount</th></tr></thead>
+            <tbody>
+              <tr><td class="label">Par Amount</td><td>$3,235,000</td></tr>
+              <tr><td class="label">Original Issue Premium</td><td>$112,438</td></tr>
+              <tr><td class="label">Total Proceeds</td><td><strong>$3,347,438</strong></td></tr>
+              <tr class="head-row"><td colspan="2">Uses of Proceeds</td></tr>
+              <tr><td class="label">Construction Fund (street &amp; water improvements)</td><td>$3,152,250</td></tr>
+              <tr><td class="label">Costs of Issuance</td><td>$49,750</td></tr>
+              <tr><td class="label">Underwriter Expenses</td><td>$42,686</td></tr>
+              <tr><td class="label">AG Insurance Premium</td><td>$15,630</td></tr>
+              <tr><td class="label">Capitalized Interest</td><td>$33,000</td></tr>
+              <tr><td class="label">Premium to Debt Service Fund</td><td>$54,123</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The Notes amortize through serial maturities from 2027 through 2036, with five term bond tranches maturing in 2038, 2040, 2042, 2044, and 2046, subject to mandatory annual sinking fund redemptions. Term bonds represent approximately <strong>61.7% of total par</strong> — a back-loaded structure that increases average life and concentrates refinancing exposure at the long end. Optional redemption is available on September 1, 2034, at par, for maturities of September 1, 2035 and later. Maximum Annual Debt Service (MADS) is <strong>$250,650, occurring in 2030</strong>. [Calculated from OS, pp.13–14 debt service schedule.] The Paying Agent is Bond Trust Services Corporation, an affiliate of Ehlers and Associates, the City's Municipal Advisor — a standard Wisconsin disclosure representing a related-party arrangement.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Key Structural Features &amp; Flags</div>
+        <div class="flag-block">
+          <div class="flag-label">⚑ No Debt Service Reserve Fund</div>
+          <p>No DSRF is provided. For an unrated underlying credit with a 20-year final maturity and back-loaded amortization, the absence of a DSRF removes a meaningful structural buffer. The risk is substantially mitigated by the unlimited levy pledge, but the structural gap is worth noting for investors who use DSRF presence as a credit screen.</p>
+        </div>
+        <div class="flag-block">
+          <div class="flag-label">⚑ Back-Loaded Amortization (~61.7% Term Bonds)</div>
+          <p>Term bonds maturing through 2046 lengthen duration, increase interest cost, and concentrate the City's GO debt burden in later years when the demographic and fiscal trajectory of a declining-population community is more uncertain.</p>
+        </div>
+        <div class="good-block">
+          <p><strong>Wisconsin County Settlement Guarantee:</strong> Rusk County guarantees 100% settlement of the City's levy to the City on or before August 20 of each collection year under Wisconsin Statutes §74.23, insulating the City from individual taxpayer delinquency risk. [OS, pp.19–20]</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEBT COVENANT SUMMARY -->
+    <div class="section" id="covenants">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Debt Covenant Summary</h2>
+      </div>
+      <p>The Series 2026A Notes carry no traditional contractual financial covenants — no debt service coverage ratio, no liquidity ratio, no rate covenant, and no fund balance floor. The security structure is constitutional, not contractual. Analytically equivalent GO constraints and current status are presented below.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Constraint</th><th>Threshold</th><th>Current Level</th><th>Headroom</th><th>Assessment</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="label">Statutory GO Debt Limit (5% of EV)</td>
+              <td class="mono">$13,360,715</td>
+              <td class="mono">$9,870,712 outstanding</td>
+              <td class="mono">$3,490,003</td>
+              <td><span style="color:var(--good-border);font-weight:600;">Comfortable</span></td>
+            </tr>
+            <tr>
+              <td class="label">Unlimited Property Tax Levy (constitutional)</td>
+              <td>None — irrepealable</td>
+              <td>100% collection; 5-year record</td>
+              <td>Not applicable</td>
+              <td><span style="color:var(--steel);font-weight:600;">Structural protection</span></td>
+            </tr>
+            <tr>
+              <td class="label">GF Unassigned Balance (GFOA benchmark: 16.7% of exp.)</td>
+              <td class="mono">$730,851</td>
+              <td class="mono">$1,352,569 (30.9%)</td>
+              <td class="mono">$621,718 above benchmark</td>
+              <td><span style="color:var(--good-border);font-weight:600;">Comfortable</span></td>
+            </tr>
+            <tr>
+              <td class="label">GO Debt Service / Total GF Levy</td>
+              <td>No covenant</td>
+              <td>MADS = 16.9% of FY2025 levy</td>
+              <td>Unlimited levy backstop</td>
+              <td style="color:var(--ink-light);">Not applicable</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The City's current compliance with all GO statutory requirements is strong. The $3,490,003 of unused statutory debt limit accommodates the anticipated SRF-related additional GO borrowing disclosed in the OS [OS, p.3], although at a modeled 20% equalized value decline, only $817,860 of capacity would remain — a meaningful constraint on future issuance flexibility if the economy deteriorates materially before additional borrowing occurs.</p>
+    </div>
+
+    <!-- STRUCTURAL RISK ASSESSMENT -->
+    <div class="section" id="structure">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Structural Risk Assessment</h2>
+      </div>
+      <p>The security structure of the Series 2026A Notes is, at its core, sound — grounded in a constitutional obligation with no precedent for failure in Wisconsin's history of municipal finance. The unlimited property tax levy pledge, the Rusk County 100% settlement guarantee, and the statutory exemption of GO debt service from levy limits collectively create a triple-layer structural protection that distinguishes Wisconsin GO bonds from GO bonds in states without comparable mechanisms.</p>
+      <p>Five structural features warrant investor attention:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Feature</th><th>Nature</th><th>Significance</th></tr></thead>
+          <tbody>
+            <tr class="flag-row">
+              <td class="mono">1</td>
+              <td class="label">No DSRF</td>
+              <td>Structural gap</td>
+              <td>Absent on 20-year unrated underlying credit with back-loaded amortization; mitigated by unlimited levy</td>
+            </tr>
+            <tr class="flag-row">
+              <td class="mono">2</td>
+              <td class="label">Back-loaded amortization (61.7% term bonds)</td>
+              <td>Duration / concentration risk</td>
+              <td>Extends duration; concentrates exposure in later years of demographic decline</td>
+            </tr>
+            <tr class="flag-row">
+              <td class="mono">3</td>
+              <td class="label">Anticipated additional SRF GO borrowing (within 12 months)</td>
+              <td>Future leverage increase</td>
+              <td>Will reduce unused debt limit headroom; additional debt service not yet modeled [OS, p.3]</td>
+            </tr>
+            <tr>
+              <td class="mono">4</td>
+              <td class="label">Related-party Paying Agent (Bond Trust Services / Ehlers)</td>
+              <td>Standard WI disclosure</td>
+              <td>Not a material concern; standard Wisconsin market practice; fully disclosed</td>
+            </tr>
+            <tr class="flag-row">
+              <td class="mono">5</td>
+              <td class="label">Continuing disclosure non-compliance (3 of 5 years)</td>
+              <td>Investor surveillance risk</td>
+              <td>Limits ongoing monitoring on a 20-year obligation without DSRF; repeat pattern vs. isolated failure [OS, p.4]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Overall structural conclusion:</strong> The protections are sound for the Wisconsin GO sector, but the combination of no DSRF, back-loaded amortization, anticipated additional debt, and weak disclosure compliance collectively justify a MONITOR designation rather than an unconditional BUY.</p>
+    </div>
+
+    <!-- ISSUER BACKGROUND -->
+    <div class="section" id="background">
+      <div class="section-header">
+        <span class="section-number">05</span>
+        <h2 class="section-title">Issuer Background</h2>
+      </div>
+      <p>The City of Ladysmith was incorporated in 1905 and serves as the county seat of Rusk County in north-central Wisconsin. The City operates under a Mayor-Council form of government, with Mayor Robert Grotzinger (re-elected unopposed in April 2024; April 2026 election outcome is unconfirmed as of the report date) and City Administrator Alan Christianson, a Ladysmith native. [OS, p.28; background research.] The City provides the full range of municipal services: public safety, streets, utilities (water and sewer), parks, and general administration. The water utility is regulated by the Wisconsin Public Service Commission (PSC); sewer rates are set unilaterally by the City Council.</p>
+      <p>The most significant recent economic development affecting the City's credit is the <strong>March 2025 announcement by Henry Repeating Arms</strong> — a top-five U.S. long gun manufacturer — of its complete Wisconsin manufacturing consolidation to Ladysmith. Henry is acquiring three industrial facilities totaling over $4.25 million in real property (1100 Barnett Rd. at $1.75M and 1506 Barnett Rd. at $2.5M, in addition to its existing 800 Gustafson Rd. facility), with a commitment to <strong>175 or more City-based full-time employees</strong>. [henryusa.com, March 2025.] Critically, these facilities were previously owned by the City and thus tax-exempt; their acquisition by Henry converts them to taxable property, adding directly to the equalized value base supporting the City's unlimited GO levy. Wisconsin Act 12 (2023) also permanently restructured shared revenue distributions, yielding an approximately 202% increase in Ladysmith's allocation — approximately $1,599,600 in 2025 and a projected $1,646,000 in 2026, indexed to state sales tax collections. [wisctowns.com, Act 12 analysis.]</p>
+    </div>
+
+    <!-- TAX BASE AND FISCAL ANALYSIS -->
+    <div class="section" id="taxbase">
+      <div class="section-header">
+        <span class="section-number">06</span>
+        <h2 class="section-title">Tax Base &amp; Fiscal Analysis</h2>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Equalized Value Trend, 2021–2025</div>
+
+        <!-- EV chart -->
+        <div class="ev-chart">
+          <!-- bars proportional to EV: min=169.7M, max=267.2M -->
+          <div class="ev-bar-wrap">
+            <div class="ev-bar" style="height:30%;position:relative;">
+              <span class="ev-label">$169.7M</span>
+            </div>
+            <div class="ev-year">2021</div>
+          </div>
+          <div class="ev-bar-wrap">
+            <div class="ev-bar" style="height:53%;position:relative;">
+              <span class="ev-label">$195.5M</span>
+            </div>
+            <div class="ev-year">2022</div>
+          </div>
+          <div class="ev-bar-wrap">
+            <div class="ev-bar" style="height:75%;position:relative;">
+              <span class="ev-label">$227.6M</span>
+            </div>
+            <div class="ev-year">2023</div>
+          </div>
+          <div class="ev-bar-wrap">
+            <div class="ev-bar" style="height:88%;position:relative;">
+              <span class="ev-label">$253.3M</span>
+            </div>
+            <div class="ev-year">2024</div>
+          </div>
+          <div class="ev-bar-wrap">
+            <div class="ev-bar" style="height:100%;background:var(--navy);position:relative;">
+              <span class="ev-label" style="color:var(--navy);">$267.2M</span>
+            </div>
+            <div class="ev-year">2025</div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Metric</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+            <tbody>
+              <tr><td class="label">Equalized Value</td><td class="mono">$169,700,000</td><td class="mono">$195,500,000</td><td class="mono">$227,600,000</td><td class="mono">$253,300,000</td><td class="mono"><strong>$267,214,300</strong></td></tr>
+              <tr><td class="label">YoY Change</td><td>—</td><td>+15.2%</td><td>+16.4%</td><td>+11.3%</td><td>+5.5%</td></tr>
+              <tr><td class="label">Statutory Debt Cap (5%)</td><td class="mono">$8,485,000</td><td class="mono">$9,775,000</td><td class="mono">$11,380,000</td><td class="mono">$12,665,000</td><td class="mono"><strong>$13,360,715</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-note">[Source: OS, p.18 EV table. 2021–2024 approximate values interpolated from OS 5-year trend disclosure.]</div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Major Employers</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Employer</th><th>Sector</th><th class="right">Employees</th></tr></thead>
+            <tbody>
+              <tr><td class="label">Weather Shield Manufacturing</td><td>Manufacturing</td><td class="right mono">327</td></tr>
+              <tr><td class="label">Rockwell Automation</td><td>Manufacturing / Technology</td><td class="right mono">260</td></tr>
+              <tr><td class="label">Rusk County</td><td>Government</td><td class="right mono">225</td></tr>
+              <tr><td class="label">Marshfield Medical Center</td><td>Healthcare</td><td class="right mono">175</td></tr>
+              <tr><td class="label">Walmart</td><td>Retail</td><td class="right mono">175</td></tr>
+              <tr><td class="label">School District of Ladysmith</td><td>Education</td><td class="right mono">175</td></tr>
+              <tr><td class="label" style="color:var(--steel);">Henry Repeating Arms <em>(announced 2025)</em></td><td>Manufacturing</td><td class="right mono" style="color:var(--steel);">175+</td></tr>
+              <tr><td class="label">Biorigin Paper</td><td>Manufacturing</td><td class="right mono">85</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-note">[Source: OS, p.29. Henry Repeating Arms commitment announced March 2025; henryusa.com.]</div>
+      </div>
+
+      <p>The City's equalized value has grown 57.5% over the five-year period 2021–2025. Annual growth decelerated from approximately 16% in the 2022–2023 period to 5.5% in 2024–2025, consistent with normalization of Wisconsin property values from pandemic-era highs. Tax collection performance has been perfect: the City has maintained a 100% collection rate for five consecutive years, supported by the Rusk County statutory settlement guarantee under Wis. Stat. §74.23. [OS, p.20.] The top 10 taxpayers represent 21.94% of total EV, with the largest single taxpayer (Ladysmith Campus LLC) at 5.01%. [OS, p.19.]</p>
+    </div>
+
+    <!-- COMPETITIVE LANDSCAPE -->
+    <div class="section" id="competitive">
+      <div class="section-header">
+        <span class="section-number">07</span>
+        <h2 class="section-title">Competitive Landscape</h2>
+      </div>
+      <p>For a general obligation bond, the competitive landscape is most meaningfully assessed in terms of the competitiveness of the tax base — whether property owners and employers have viable alternatives to location within the City. Industrial and commercial property owners in Ladysmith face limited short-run alternatives given the investment already embedded in Rusk County's infrastructure, workforce, and the specific attractiveness demonstrated by Henry Repeating Arms' consolidation decision. Henry's $4.25M+ facility acquisition and multi-year employment commitment signals meaningful anchor-tenant stability in the industrial base.</p>
+      <p>The more relevant competitive dynamic for a GO tax base is population retention. Ladysmith competes for residents against other northern Wisconsin communities and against broader migration patterns that have steadily moved population away from rural Wisconsin. The City's 18.9% population decline since 2000 reflects this competitive pressure. Residential property represents 61% of EV; sustained population outflow could create long-term downward pressure on residential values, partially offsetting commercial and industrial base gains. This dynamic is long-running and secular, not cyclical — it does not impair the current GO levy but represents a structural constraint on EV growth over the life of the 2046 Notes.</p>
+    </div>
+
+    <!-- FINANCIAL ANALYSIS -->
+    <div class="section" id="financial">
+      <div class="section-header">
+        <span class="section-number">08</span>
+        <h2 class="section-title">Financial Analysis</h2>
+      </div>
+
+      <!-- Key metrics cards -->
+      <div class="metrics-grid">
+        <div class="metric-card good-card">
+          <div class="mc-label">GF Operating Margin (FY2024)</div>
+          <div class="mc-value">11.8%</div>
+          <div class="mc-bench">FY2023: 4.3% · FY2022: 10.0% · Benchmark: &gt;5%</div>
+        </div>
+        <div class="metric-card good-card">
+          <div class="mc-label">GF Unassigned Balance / Expenditures</div>
+          <div class="mc-value">30.9%</div>
+          <div class="mc-bench">GFOA minimum: 16.7% · $1,352,569 outstanding</div>
+        </div>
+        <div class="metric-card flag-card">
+          <div class="mc-label">Days Cash on Hand (Dec 31, 2024)</div>
+          <div class="mc-value">23.7 days</div>
+          <div class="mc-bench">⚑ Below 60-day benchmark · Seasonal low; Mar 2026 cash: $4.4M</div>
+        </div>
+        <div class="metric-card">
+          <div class="mc-label">GO Debt / Equalized Value</div>
+          <div class="mc-value">3.69%</div>
+          <div class="mc-bench">Adequate (strong &lt;2%; concerning &gt;5%)</div>
+        </div>
+        <div class="metric-card">
+          <div class="mc-label">MADS as % of GF Revenues</div>
+          <div class="mc-value">5.05%</div>
+          <div class="mc-bench">$250,650 MADS · Constitutionally protected levy</div>
+        </div>
+        <div class="metric-card flag-card">
+          <div class="mc-label">Sewer Unrestricted Net Position</div>
+          <div class="mc-value">($978,081)</div>
+          <div class="mc-bench">⚑ Negative · $1,350,684 interfund loan from GF</div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Three-Year General Fund Summary</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Metric</th><th class="right">FY2024</th><th class="right">FY2023</th><th class="right">FY2022</th><th>Benchmark / Note</th></tr></thead>
+            <tbody>
+              <tr class="head-row"><td colspan="5">General Fund — Modified Accrual</td></tr>
+              <tr><td class="label">Total Revenues</td><td class="right mono">$4,963,846</td><td class="right mono">$4,753,978</td><td class="right mono">$4,594,941</td><td></td></tr>
+              <tr><td class="label">Total Expenditures</td><td class="right mono">$4,377,549</td><td class="right mono">$4,547,578</td><td class="right mono">$4,135,764</td><td></td></tr>
+              <tr><td class="label">Annual Operating Surplus</td><td class="right mono">$586,297</td><td class="right mono">$206,400</td><td class="right mono">$459,177</td><td>Positive all 3 years</td></tr>
+              <tr><td class="label">Operating Margin</td><td class="right">11.8%</td><td class="right">4.3%</td><td class="right">10.0%</td><td>&gt;5% adequate</td></tr>
+              <tr><td class="label">Unassigned Fund Balance</td><td class="right mono">$1,352,569</td><td class="right mono">$1,024,568 est.</td><td class="right">—</td><td>GFOA min: 16.7% ✓</td></tr>
+              <tr><td class="label">Fund Balance as % of Expenditures</td><td class="right">30.9%</td><td class="right">~22.5%</td><td class="right">—</td><td>30.9% vs. 16.7% min</td></tr>
+              <tr class="flag-row"><td class="label">Days Cash on Hand (Dec 31)</td><td class="right">23.7 days</td><td class="right">—</td><td class="right">—</td><td>⚑ Below 60-day benchmark</td></tr>
+              <tr><td class="label">March 2026 Cash Position</td><td class="right mono">$4,417,001</td><td class="right">—</td><td class="right">—</td><td>Seasonally elevated</td></tr>
+              <tr><td class="label">Fund Balance as % of Revenues</td><td class="right">56.5%</td><td class="right">—</td><td class="right">—</td><td>&gt;15% adequate ✓</td></tr>
+              <tr class="head-row"><td colspan="5">Debt Metrics</td></tr>
+              <tr><td class="label">Total GO Debt Outstanding</td><td class="right mono">$9,870,712</td><td class="right">—</td><td class="right">—</td><td>Includes Series 2026A</td></tr>
+              <tr><td class="label">GO Debt / Equalized Value</td><td class="right">3.69%</td><td class="right">—</td><td class="right">—</td><td>Strong &lt;2%; Adequate 2–5%</td></tr>
+              <tr><td class="label">Per Capita GO Debt</td><td class="right mono">$3,077.86</td><td class="right">—</td><td class="right">—</td><td>Per 3,207 population (2020 Census)</td></tr>
+              <tr><td class="label">Series 2026A MADS</td><td class="right mono">$250,650</td><td class="right">—</td><td class="right">—</td><td>Occurs in 2030</td></tr>
+              <tr><td class="label">MADS as % of GF Revenues</td><td class="right">5.05%</td><td class="right">—</td><td class="right">—</td><td>Manageable</td></tr>
+              <tr><td class="label">Revenue Bonds Outstanding</td><td class="right mono">$10,105,849</td><td class="right">—</td><td class="right">—</td><td>Separate enterprise lien</td></tr>
+              <tr class="head-row"><td colspan="5">Enterprise Funds (FY2024)</td></tr>
+              <tr><td class="label">Water: Operating Revenues</td><td class="right mono">$1,434,087</td><td class="right">—</td><td class="right">—</td><td>PSC-regulated</td></tr>
+              <tr><td class="label">Water: Operating Income</td><td class="right mono">$328,578</td><td class="right">—</td><td class="right">—</td><td>Positive</td></tr>
+              <tr><td class="label">Water: EBITDA</td><td class="right mono">$734,223</td><td class="right">—</td><td class="right">—</td><td></td></tr>
+              <tr><td class="label">Sewer: Operating Revenues</td><td class="right mono">$885,450</td><td class="right mono">$882,000 est.</td><td class="right mono">$820,000 est.</td><td></td></tr>
+              <tr class="flag-row"><td class="label">Sewer: Operating Loss</td><td class="right mono">($87,869)</td><td class="right mono">($106,181)</td><td class="right mono">($139,466)</td><td>⚑ Improving but persistent deficit</td></tr>
+              <tr class="flag-row"><td class="label">Sewer: Unrestricted Net Position</td><td class="right mono">($978,081)</td><td class="right">—</td><td class="right">—</td><td>⚑ Fund insolvent on standalone basis</td></tr>
+              <tr class="flag-row"><td class="label">Sewer-to-GF Interfund Loan</td><td class="right mono">$1,350,684</td><td class="right">—</td><td class="right">—</td><td>⚑ Owed to General Fund</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-note">[Sources: OS pp.27–31; Appendix A (FY2024 Audit, CliftonLarsonAllen LLP). All figures unaudited where labeled est.]</div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Financial Narrative</div>
+        <p><strong>Income Statement Trajectory.</strong> The City's General Fund has delivered positive operating results in each of the three years for which data are available, with revenues growing from $4,594,941 in FY2022 to $4,963,846 in FY2024, a cumulative increase of 8.0%. [Appendix A.] The FY2023 result was the weakest — a $206,400 surplus on a 4.3% margin — driven by a 9.9% expenditure increase against only 3.5% revenue growth. The FY2024 rebound to an 11.8% margin is encouraging but does not yet represent a confirmed trend reversal. The government-wide FY2024 results include $5,403,104 in capital grants — a non-recurring item ($1,145,219 in FY2023) — that inflates the headline numbers. On a normalized basis, the government-wide governmental activities show an estimated net position decline of approximately ($1,166,799). [Appendix A; analyst normalization.]</p>
+        <p><strong>Balance Sheet Strength.</strong> The unassigned General Fund balance of $1,352,569 — representing 30.9% of expenditures — is a genuine credit strength, sitting approximately 85% above the GFOA minimum of $730,851. [Appendix A.] However, <span class="flag">⚑ DAYS CASH</span> the December 31, 2024 GF cash of $284,788 implies only 23.7 days cash on hand — well below the 60-day benchmark. The seasonally elevated March 2026 cash position of $4,417,001 [OS, p.25] confirms this is not a chronic issue, but mid-year cash management warrants monitoring.</p>
+        <p><strong>Key Financial Risk.</strong> The single most concerning financial metric is the Sewer enterprise fund: a ($978,081) unrestricted net position deficit, three consecutive years of operating losses, and $1,350,684 in outstanding cash-basis loans from the General Fund. [Appendix A.] The City sets sewer rates without PSC oversight, subject to the political constraints of serving a low-income population where median household income is $41,719 — only 53.9% of the Wisconsin median. If sewer operating performance does not improve sufficiently, continued GF subsidy would erode the General Fund cushion that serves as the primary operational protection.</p>
+      </div>
+
+      <div class="flag-block">
+        <div class="flag-label">⚑ Audit &amp; Governance — Repeat Material Weaknesses</div>
+        <p>The FY2024 audit by CliftonLarsonAllen LLP identified three material weaknesses, all repeat findings from FY2023 (second consecutive year): (1) segregation of duties insufficient for a municipality of Ladysmith's size; (2) material audit adjustments required by the auditor; and (3) reliance on the audit firm for the preparation of GAAP financial statements. [Appendix A, pp.150–152.] For an investor in a 20-year obligation with no DSRF, the absence of reliable internal controls limits confidence in self-reported financial information between audit cycles — particularly given the concurrent continuing disclosure non-compliance record.</p>
+      </div>
+    </div>
+
+    <!-- DEMOGRAPHICS -->
+    <div class="section" id="demographic">
+      <div class="section-header">
+        <span class="section-number">09</span>
+        <h2 class="section-title">Demographic &amp; Economic Context</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Indicator</th><th>City of Ladysmith</th><th>Wisconsin</th><th>Assessment</th></tr></thead>
+          <tbody>
+            <tr><td class="label">Population (2020 Census)</td><td>3,216</td><td>5,893,718</td><td>—</td></tr>
+            <tr class="flag-row"><td class="label">Population Decline Since 2000</td><td>−18.9%</td><td>+8.4%</td><td>⚑ Chronic outmigration</td></tr>
+            <tr><td class="label">Estimated Population (2026)</td><td>~3,150</td><td>—</td><td>Continuing decline ~0.57%/yr</td></tr>
+            <tr class="flag-row"><td class="label">Median Age</td><td>49.5 years</td><td>40.1 years</td><td>⚑ Significantly older; limits organic HH formation</td></tr>
+            <tr class="flag-row"><td class="label">Median Household Income</td><td>$41,719</td><td>$77,485</td><td>⚑ 53.9% of state median</td></tr>
+            <tr class="flag-row"><td class="label">Poverty Rate</td><td>~18.97%</td><td>10.6%</td><td>⚑ Nearly double state rate</td></tr>
+            <tr><td class="label">Per Capita Income</td><td>$32,435</td><td>—</td><td>74.8% of Wisconsin</td></tr>
+            <tr class="flag-row"><td class="label">Rusk County Unemployment</td><td>4.0–4.5% (2024–2025)</td><td>~3.0–3.5%</td><td>⚑ Consistently 50–150bps above state</td></tr>
+            <tr><td class="label">Top 10 Taxpayers / Total EV</td><td>21.94%</td><td>—</td><td>Moderate concentration</td></tr>
+            <tr><td class="label">Largest Single Taxpayer (Ladysmith Campus LLC)</td><td>5.01% of EV</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-note">[Sources: 2024 ACS; OS, pp.28–29; BLS LAUS, December 2025.]</div>
+      <p style="margin-top:1rem;">These demographic conditions have direct implications for the GO credit. In the near term, they constrain GF revenue growth — declining population limits the residential property value appreciation that would otherwise expand the levy base. The high poverty rate and below-average income create meaningful rate affordability pressure for any future sewer rate increases needed to address the enterprise fund's persistent operating deficit. In the medium term, the Henry Repeating Arms consolidation meaningfully offsets these pressures by adding taxable industrial property and 175+ jobs. The question for a 20-year investor is whether job creation from Henry and any follow-on economic development can structurally reverse the population decline — a question that current data cannot answer but that investors should revisit in each annual continuing disclosure cycle.</p>
+    </div>
+
+    <!-- MARKET AND MACRO -->
+    <div class="section" id="macro">
+      <div class="section-header">
+        <span class="section-number">10</span>
+        <h2 class="section-title">Market &amp; Macro Environment</h2>
+      </div>
+      <p>As of March 18, 2026, the Federal Open Market Committee maintained the federal funds target rate at <strong>3.50–3.75%</strong> for the second consecutive meeting; the U.S. Treasury yield curve is positively sloped, with the 2-year note at 3.88% and the 10-year note at 4.31% as of April 2, 2026 — a 2s/10s spread of +43 basis points. [Federal Reserve press release, March 18, 2026; Federal Reserve H.15 / Slickcharts / Treasury.gov, April 2, 2026.]</p>
+
+      <div class="subsection">
+        <div class="subsection-title">Rate Environment</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Rate / Spread</th><th class="right">Level</th><th>Source &amp; Date</th></tr></thead>
+            <tbody>
+              <tr><td class="label">Fed Funds Target Range</td><td class="right mono">3.50–3.75%</td><td>Federal Reserve, March 18, 2026</td></tr>
+              <tr><td class="label">FOMC Dot Plot Median — End 2026</td><td class="right mono">3.4%</td><td>Powell press conference, March 18, 2026</td></tr>
+              <tr><td class="label">CME FedWatch — April 28–29 Meeting (Hold)</td><td class="right mono">~87–89%</td><td>CME FedWatch / Fox Business, March 18–19, 2026</td></tr>
+              <tr><td class="label">CME FedWatch — December 2026 (Unchanged)</td><td class="right mono">51.3%</td><td>CME FedWatch / Fox Business, March 18–19, 2026</td></tr>
+              <tr><td class="label">2-Year Treasury</td><td class="right mono">3.88%</td><td>Slickcharts / Treasury.gov, April 2, 2026</td></tr>
+              <tr><td class="label">5-Year Treasury</td><td class="right mono">4.06%</td><td>Slickcharts / Treasury.gov, April 2, 2026</td></tr>
+              <tr><td class="label">10-Year Treasury</td><td class="right mono">4.31%</td><td>Federal Reserve H.15, April 2, 2026</td></tr>
+              <tr><td class="label">30-Year Treasury</td><td class="right mono">4.88%</td><td>ETF Trends / CNBC, April 2, 2026</td></tr>
+              <tr><td class="label">2s/10s Spread</td><td class="right mono">+43 bps</td><td>Derived (positively sloped)</td></tr>
+              <tr><td class="label">10-Year TIPS Real Yield</td><td class="right mono">~1.50%</td><td>tipswatch.com / Treasury, March 27, 2026 (approximate)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Municipal Market Conditions</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Maturity</th><th class="right">AAA MMD</th><th class="right">Treasury</th><th class="right">Muni/Tsy Ratio</th><th>Source &amp; Date</th></tr></thead>
+            <tbody>
+              <tr><td>10-Year</td><td class="right mono">~3.09%</td><td class="right mono">4.31%</td><td class="right mono">~72%</td><td>Bloomberg BVAL / Raymond James, March 26–30, 2026</td></tr>
+              <tr><td>30-Year</td><td class="right mono">~4.09–4.25%</td><td class="right mono">4.88%</td><td class="right mono">~84–87%</td><td>Raymond James / AB, March 26–27, 2026 (range — precise figure unavailable)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-note">Historical 10-year muni/Treasury ratio average: ~85–90%. Current 10-year ratio of ~72% is below historical norms. 20-year AAA MMD was not retrievable in precise form; Bloomberg BVAL / Refinitiv MMD require subscription access.</div>
+
+        <div class="table-wrap" style="margin-top:1.2rem;">
+          <table>
+            <thead><tr><th>Tax Bracket</th><th>AAA MMD (10-yr)</th><th>Tax-Equivalent Yield</th><th>Formula</th></tr></thead>
+            <tbody>
+              <tr><td>24%</td><td class="mono">3.09%</td><td class="mono"><strong>4.07%</strong></td><td class="mono" style="font-size:0.77rem;">3.09% ÷ (1 − 0.24) = 3.09% ÷ 0.76</td></tr>
+              <tr><td>32%</td><td class="mono">3.09%</td><td class="mono"><strong>4.54%</strong></td><td class="mono" style="font-size:0.77rem;">3.09% ÷ (1 − 0.32) = 3.09% ÷ 0.68</td></tr>
+              <tr><td>37%</td><td class="mono">3.09%</td><td class="mono"><strong>4.90%</strong></td><td class="mono" style="font-size:0.77rem;">3.09% ÷ (1 − 0.37) = 3.09% ÷ 0.63</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-note">Municipal fund flows: $1.8 billion inflow in most recent week; 17 consecutive weeks of inflows as of late March 2026. [Lipper / AllianceBernstein Muniland, week of approximately March 23–29, 2026.]</div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Macroeconomic Indicators</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Indicator</th><th class="right">Current</th><th class="right">Prior Period</th><th class="center">Trend</th><th>Source</th><th>Date</th></tr></thead>
+            <tbody>
+              <tr class="head-row"><td colspan="6">Inflation</td></tr>
+              <tr><td class="label">CPI Headline (YoY)</td><td class="right mono">2.4%</td><td class="right mono">2.4% (Jan)</td><td class="center">→</td><td>BLS</td><td>February 2026</td></tr>
+              <tr><td class="label">CPI Core (YoY)</td><td class="right mono">2.5%</td><td class="right mono">~2.5% (Jan)</td><td class="center">→</td><td>BLS</td><td>February 2026</td></tr>
+              <tr class="flag-row"><td class="label">PCE Headline (YoY) [Fed preferred]</td><td class="right mono">2.8%</td><td class="right mono">2.7–2.8% (Nov–Dec 25)</td><td class="center">↑</td><td>BEA</td><td>January 2026</td></tr>
+              <tr class="flag-row"><td class="label">PCE Core (YoY)</td><td class="right mono">3.1%</td><td class="right mono">2.8% (Nov–Dec 25)</td><td class="center">↑</td><td>BEA / Dallas Fed</td><td>January 2026</td></tr>
+              <tr class="head-row"><td colspan="6">Labor Market</td></tr>
+              <tr><td class="label">Unemployment Rate (U-3)</td><td class="right mono">4.4%</td><td class="right mono">4.3% (Jan)</td><td class="center">↑</td><td>BLS</td><td>February 2026</td></tr>
+              <tr class="flag-row"><td class="label">Nonfarm Payrolls (monthly change)</td><td class="right mono">−92,000</td><td class="right mono">+126,000 (Jan)</td><td class="center">↓</td><td>BLS</td><td>February 2026</td></tr>
+              <tr class="head-row"><td colspan="6">Growth</td></tr>
+              <tr><td class="label">Real GDP Growth (Q4 2025, SAAR)</td><td class="right mono">+1.4%</td><td class="right mono">+4.4% (Q3 2025)</td><td class="center">↓</td><td>BEA advance estimate</td><td>Feb 20, 2026</td></tr>
+              <tr><td class="label">Atlanta Fed GDPNow (Q1 2026)</td><td class="right mono">+1.6%</td><td class="right mono">+1.9% (Apr 1)</td><td class="center">↓</td><td>Atlanta Fed GDPNow</td><td>April 2, 2026</td></tr>
+              <tr class="head-row"><td colspan="6">Leading Indicators</td></tr>
+              <tr><td class="label">ISM Manufacturing PMI</td><td class="right mono">52.7</td><td class="right mono">52.4 (Feb)</td><td class="center">↑</td><td>ISM</td><td>March 2026 (Apr 1 release)</td></tr>
+              <tr class="flag-row"><td class="label">ISM Manufacturing Prices Paid</td><td class="right mono">78.3</td><td class="right mono">70.5 (Feb)</td><td class="center">↑↑</td><td>ISM</td><td>March 2026 (highest since Jun 2022)</td></tr>
+              <tr><td class="label">ISM Services PMI</td><td class="right mono">56.1</td><td class="right mono">53.8 (Jan)</td><td class="center">↑</td><td>ISM</td><td>February 2026 (March not yet released)</td></tr>
+              <tr><td class="label">Conference Board LEI (monthly change)</td><td class="right mono">−0.1%</td><td class="right mono">−0.2% (Dec 2025)</td><td class="center">→</td><td>Conference Board</td><td>January 2026</td></tr>
+              <tr><td class="label">Conference Board LEI (6-month trend)</td><td class="right mono">−1.3%</td><td class="right mono">Prior 6-mo: −2.6%</td><td class="center">↑</td><td>Conference Board</td><td>July 2025 – January 2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Bond-Specific Market Context</div>
+        <p>The Series 2026A Notes are fixed-rate obligations priced on April 13, 2026, locking in their coupon structure for the duration of the 20-year term regardless of subsequent rate movements. The FOMC's March 2026 statement indicated the Committee "will carefully assess incoming data, the evolving outlook, and the balance of risks" before adjusting rates, with Chair Powell's median dot-plot projection of 3.4% for end-2026 unchanged from December. [Federal Reserve press release and Powell press conference, March 18, 2026.]</p>
+        <p>The current inflationary macro environment is directly relevant to this bond's cost structure: proceeds finance street and water treatment plant improvements — capital-intensive, construction-heavy uses in an environment where the ISM Manufacturing Prices Paid index reached 78.3% in March 2026, the highest level since June 2022. [ISM, April 1, 2026.] The most directly relevant macro condition for this credit is the trajectory of Wisconsin state sales tax collections, which directly determines the Act 12 shared revenue distributions that represent approximately $1.6 million of Ladysmith's General Fund revenue base.</p>
+      </div>
+    </div>
+
+    <!-- STRESS ANALYSIS -->
+    <div class="section" id="stress">
+      <div class="section-header">
+        <span class="section-number">11</span>
+        <h2 class="section-title">Stress &amp; Downside Analysis</h2>
+      </div>
+      <p>For the Series 2026A Notes, the operative stress framework differs from a revenue bond analysis: because the GO pledge is constitutionally unlimited, debt service cannot be impaired through the typical revenue-coverage deterioration pathway. The relevant stress is General Fund operational deterioration — specifically whether declining revenues erode the fund balance below acceptable operating levels. The MADS ($250,650) is excluded from the sensitivity analysis because it is constitutionally protected by a separate levy.</p>
+
+      <div class="subsection">
+        <div class="subsection-title">General Fund Revenue Sensitivity (Expenses Fixed at FY2024 Level)</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Revenue Scenario</th>
+                <th class="right">GF Revenues</th>
+                <th class="right">Annual Result</th>
+                <th class="right">Unassigned Bal. Yr 1</th>
+                <th class="right">Balance / Exp.</th>
+                <th>Status vs. GFOA Min ($730,851)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="good-row"><td class="label">Current (Baseline)</td><td class="right mono">$4,963,846</td><td class="right mono">+$586,297</td><td class="right mono">$1,938,866</td><td class="right">44.3%</td><td>Well Above</td></tr>
+              <tr><td class="label">−5%</td><td class="right mono">$4,715,654</td><td class="right mono">+$338,105</td><td class="right mono">$1,690,674</td><td class="right">38.6%</td><td>Above</td></tr>
+              <tr><td class="label">−10%</td><td class="right mono">$4,467,461</td><td class="right mono">+$89,912</td><td class="right mono">$1,442,481</td><td class="right">33.0%</td><td>Above</td></tr>
+              <tr><td class="label">−15%</td><td class="right mono">$4,219,269</td><td class="right mono">($158,280)</td><td class="right mono">$1,194,289</td><td class="right">27.3%</td><td>Above</td></tr>
+              <tr><td class="label">−20%</td><td class="right mono">$3,971,077</td><td class="right mono">($406,472)</td><td class="right mono">$946,097</td><td class="right">21.6%</td><td>Above</td></tr>
+              <tr class="flag-row"><td class="label">−24.3% [GFOA Breach Point]</td><td class="right mono">$3,755,831</td><td class="right mono">($621,718)</td><td class="right mono">$730,851</td><td class="right">16.7%</td><td>AT GFOA MINIMUM</td></tr>
+              <tr class="flag-row"><td class="label">−25%</td><td class="right mono">$3,722,885</td><td class="right mono">($654,664)</td><td class="right mono">$697,905</td><td class="right">16.0%</td><td>⚑ Below GFOA Min</td></tr>
+              <tr class="flag-row"><td class="label">−30%</td><td class="right mono">$3,474,692</td><td class="right mono">($902,857)</td><td class="right mono">$449,712</td><td class="right">10.3%</td><td>⚑ Below GFOA Min</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap" style="margin-top:1.5rem;">
+          <caption style="caption-side:top;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;color:var(--ink-light);text-transform:uppercase;margin-bottom:0.5rem;display:table-caption;">Combined Stress: Revenue Decline + 5% Expense Inflation</caption>
+          <table>
+            <thead>
+              <tr>
+                <th>Revenue Scenario</th>
+                <th class="right">GF Revenues</th>
+                <th class="right">Exp. (+5%)</th>
+                <th class="right">Annual Result</th>
+                <th class="right">Unassigned Bal. Yr 1</th>
+                <th class="right">Balance / Exp.</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="good-row"><td class="label">Current (+5% exp. only)</td><td class="right mono">$4,963,846</td><td class="right mono">$4,596,426</td><td class="right mono">+$367,420</td><td class="right mono">$1,719,989</td><td class="right">37.4%</td><td>Well Above</td></tr>
+              <tr><td class="label">−5%</td><td class="right mono">$4,715,654</td><td class="right mono">$4,596,426</td><td class="right mono">+$119,228</td><td class="right mono">$1,471,797</td><td class="right">32.0%</td><td>Above</td></tr>
+              <tr><td class="label">−10%</td><td class="right mono">$4,467,461</td><td class="right mono">$4,596,426</td><td class="right mono">($128,965)</td><td class="right mono">$1,223,604</td><td class="right">26.6%</td><td>Above</td></tr>
+              <tr><td class="label">−15%</td><td class="right mono">$4,219,269</td><td class="right mono">$4,596,426</td><td class="right mono">($377,157)</td><td class="right mono">$975,412</td><td class="right">21.2%</td><td>Above</td></tr>
+              <tr class="flag-row"><td class="label">−20% [GFOA Breach under combined stress]</td><td class="right mono">$3,971,077</td><td class="right mono">$4,596,426</td><td class="right mono">($625,349)</td><td class="right mono">$727,220</td><td class="right">15.8%</td><td>⚑ Below GFOA Min</td></tr>
+              <tr class="flag-row"><td class="label">−25%</td><td class="right mono">$3,722,885</td><td class="right mono">$4,596,426</td><td class="right mono">($873,541)</td><td class="right mono">$479,028</td><td class="right">10.4%</td><td>⚑ Below GFOA Min</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-note">[Source: FY2024 GF data from Appendix A. Starting unassigned balance $1,352,569. Projected Year 1 balance = starting balance + annual surplus/(deficit). MADS ($250,650) excluded — constitutionally protected separate levy. GFOA minimum corrected to $730,851 (16.7% × $4,377,549) per QA pass. Breach threshold corrected to 24.3% from initial 26.5% per QA arithmetic review.]</div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Historical Stress Anchoring</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Stress Metric</th><th>Great Recession (Northern WI, 2008–2013)</th><th>GFOA Breach Threshold</th><th>Would Breach Have Occurred?</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="label">EV decline (peak-to-trough)</td>
+                <td>~10–18% in comparable northern WI counties; recovery took 5–8 years</td>
+                <td>26.1% to exhaust new issuance capacity; existing debt unaffected</td>
+                <td><span style="color:var(--good-border);font-weight:600;">No</span> — existing debt service was not impaired</td>
+              </tr>
+              <tr>
+                <td class="label">GF revenue decline (single year)</td>
+                <td>Not determinable from available data; county settlement held throughout</td>
+                <td>24.3% (expenses flat) to reach GFOA minimum in Year 1</td>
+                <td><span style="color:var(--good-border);font-weight:600;">Likely No</span> — no Wisconsin GO bond defaulted during Great Recession</td>
+              </tr>
+              <tr>
+                <td class="label">Property tax collection rate</td>
+                <td>98–100% maintained; county settlement guarantee operated without interruption</td>
+                <td>Constitutional (not a finite threshold)</td>
+                <td><span style="color:var(--good-border);font-weight:600;">No</span> — mechanism held throughout</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-note">[Sources: WISTAX report; Wisconsin Policy Forum; Door County Pulse, 2018; Wisconsin Policy Forum, 2019.]</div>
+      </div>
+
+      <p style="margin-top:1.5rem;"><strong>Scenario required for bondholder impairment:</strong> For Series 2026A bondholders to experience payment impairment, the following conditions would need to occur simultaneously: (1) the unlimited property tax levy mandate would need to be overridden — legally impossible without a Wisconsin constitutional amendment; (2) the Rusk County statutory settlement guarantee would need to fail — with no Wisconsin precedent; and (3) the Wisconsin state legislature would need to repeal the §66.0602 exemption for GO debt service from levy limits — a retroactive change affecting existing bonds. No reasonable stress scenario produces all three conditions concurrently. The probability of bondholder payment impairment is, for practical analytical purposes, <strong>remote</strong>.</p>
+    </div>
+
+    <!-- ADDITIONAL CONSIDERATIONS -->
+    <div class="section" id="additional">
+      <div class="section-header">
+        <span class="section-number">12</span>
+        <h2 class="section-title">Additional Considerations</h2>
+      </div>
+      <div class="add-grid">
+        <div class="add-card">
+          <div class="ac-title">⚑ Continuing Disclosure Non-Compliance</div>
+          <p>The City failed to file required continuing disclosure submissions in 2021, 2024, and 2025 — three of the past five calendar years. [OS, p.4.] For a 20-year unrated underlying credit with no DSRF, the continuing disclosure system is the investor's primary surveillance mechanism. Repeat non-compliance suggests systemic capacity constraints consistent with the repeat audit material weaknesses. Investors should explicitly track annual EMMA filings (emma.msrb.org) as a primary monitoring activity.</p>
+        </div>
+        <div class="add-card">
+          <div class="ac-title">⚑ Anticipated Additional Debt Issuance</div>
+          <p>The OS discloses probable additional GO borrowing within 12 months to fund SRF-related infrastructure improvements. [OS, p.3.] The financial impact is not quantified. If the additional issuance is in the $2–3 million range, total GO debt outstanding would approach $12–13 million — leaving limited unused statutory debt limit capacity at current EV levels ($13,360,715 cap). Monitor the City's 2026 capital borrowing program through EMMA filings.</p>
+        </div>
+        <div class="add-card">
+          <div class="ac-title">⚑ Iran Conflict &amp; Energy Market Uncertainty</div>
+          <p>The ongoing U.S.-Iran military conflict has produced oil price surges contributing to ISM Prices Paid elevation at 78.3% and inflation uncertainty that prompted the FOMC to hold rates in March 2026. [ISM, April 1, 2026; Federal Reserve, March 18, 2026.] For Ladysmith specifically, elevated energy prices represent a cost headwind for sewer treatment operations and a potential driver of higher construction materials costs that could pressure the project budget financed by these Notes.</p>
+        </div>
+        <div class="add-card">
+          <div class="ac-title">QA Unresolved Flags</div>
+          <p>Items from the Section 7 QA pass that remain unresolved: (1) 30-year AAA MMD yield and muni/Treasury ratio as of April 2, 2026 could not be precisely confirmed from public sources; (2) City's pre-2021 equalized value history was not available, preventing issuer-specific Great Recession anchoring; (3) Mayor's April 2026 election result is unconfirmed; (4) claim that no Wisconsin GO bond defaulted during the Great Recession is commonly accepted but not formally primary-sourced.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end .content -->
+
+  <!-- RECOMMENDATION SECTION (dark background) -->
+  <div class="rec-section" id="recommendation">
+    <div class="section-header">
+      <span class="section-number" style="color:var(--gold-light);">13</span>
+      <h2 class="section-title" style="color:white;">Recommendation</h2>
+    </div>
+
+    <div class="rec-pillars">
+      <div class="rec-pillar">
+        <div class="rp-num">Reason 01</div>
+        <div class="rp-title">Structural invulnerability of the GO pledge supports the credit at the bond-payment level</div>
+        <p>Wisconsin's constitutional unlimited tax levy, the Rusk County statutory settlement guarantee, and the §66.0602 exemption of GO debt service from levy limits collectively create a payment mechanism that has never failed in the state's history. MADS of $250,650 represents 5.05% of GF revenues and is collected by the county separately from GF operations. This structural protection would move the recommendation toward BUY if operational and governance concerns were resolved.</p>
+      </div>
+      <div class="rec-pillar">
+        <div class="rp-num">Reason 02</div>
+        <div class="rp-title">Operational conditions — sewer deterioration, anticipated debt, normalized results — warrant ongoing monitoring</div>
+        <p>The Sewer enterprise fund's ($978,081) unrestricted net position deficit and $1,350,684 interfund loan from the GF represent an unresolved structural imbalance. The anticipated additional SRF-related GO borrowing will reduce debt limit headroom. Government-wide FY2024 results are materially distorted by $5.4M in non-recurring capital grants; normalized picture shows an estimated ($1.2M) net position decline. These conditions would shift the recommendation toward PASS if sewer losses accelerate or additional borrowing exhausts debt limit capacity.</p>
+      </div>
+      <div class="rec-pillar">
+        <div class="rp-num">Reason 03</div>
+        <div class="rp-title">Governance deficiencies reduce investor confidence in financial transparency</div>
+        <p>Three consecutive audit material weaknesses combined with continuing disclosure non-compliance in three of five years create an information environment where investors cannot reliably monitor this credit between audit releases — a meaningful concern for a 20-year obligation without a DSRF. This would shift toward BUY with two consecutive years of remediation and consistent EMMA filings, or toward PASS if non-compliance continues or audit opinions deteriorate.</p>
+      </div>
+    </div>
+
+    <div class="monitor-conditions">
+      <div class="mc-title">Monitoring Conditions</div>
+      <ul class="mc-list">
+        <li>Track annual EMMA filings at emma.msrb.org for timely financial statements and material event notices</li>
+        <li>Monitor Sewer enterprise fund operating performance and the status of the anticipated additional SRF GO borrowing</li>
+        <li>Review audit material weakness remediation in each annual audit — two consecutive clean audits moves recommendation toward BUY</li>
+        <li>Watch General Fund unassigned balance as % of expenditures — decline below 20% warrants escalation to PASS review</li>
+        <li>Track Henry Repeating Arms employment ramp-up and its effect on equalized value and the City's economic base</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PITCH CARD -->
+  <div class="content" id="pitchcard">
+    <div class="section" style="border-bottom:none;">
+      <div class="section-header">
+        <span class="section-number">—</span>
+        <h2 class="section-title">Pitch Card</h2>
+      </div>
+
+      <div class="pitch-card">
+        <div class="pc-header">
+          <div class="pc-header-left">
+            <div class="pc-org">Credit Investment Memorandum · April 3, 2026</div>
+            <div class="pc-name">City of Ladysmith, Wisconsin</div>
+          </div>
+          <div class="pc-header-right">
+            <div class="pc-rec-label">Recommendation</div>
+            <div class="pc-rec">MONITOR</div>
+          </div>
+        </div>
+
+        <div class="pc-grid">
+          <div class="pc-cell">
+            <div class="pc-label">Series</div>
+            <div class="pc-val">GO Notes 2026A</div>
+            <div class="pc-sub">$3,235,000 par</div>
+          </div>
+          <div class="pc-cell">
+            <div class="pc-label">Sector</div>
+            <div class="pc-val">General Obligation</div>
+            <div class="pc-sub">Unlimited Tax Pledge · Wisconsin</div>
+          </div>
+          <div class="pc-cell">
+            <div class="pc-label">Maturity</div>
+            <div class="pc-val">March 1, 2046</div>
+            <div class="pc-sub">Call: Sep 1, 2034 at par</div>
+          </div>
+          <div class="pc-cell">
+            <div class="pc-label">Rating</div>
+            <div class="pc-val">S&amp;P AA / Stable</div>
+            <div class="pc-sub">Insured (AG) · Underlying: NR</div>
+          </div>
+          <div class="pc-cell">
+            <div class="pc-label">MADS</div>
+            <div class="pc-val">$250,650</div>
+            <div class="pc-sub">5.05% of GF revenues</div>
+          </div>
+          <div class="pc-cell">
+            <div class="pc-label">GO Debt / EV</div>
+            <div class="pc-val">3.69%</div>
+            <div class="pc-sub">Adequate range (2–5%)</div>
+          </div>
+          <div class="pc-cell">
+            <div class="pc-label">GF Operating Margin</div>
+            <div class="pc-val">11.8%</div>
+            <div class="pc-sub">FY2024 · 4.3% in FY2023</div>
+          </div>
+          <div class="pc-cell pc-flag">
+            <div class="pc-label">Days Cash (Dec 31)</div>
+            <div class="pc-val">23.7 days</div>
+            <div class="pc-sub">⚑ Below 60-day benchmark</div>
+          </div>
+          <div class="pc-cell">
+            <div class="pc-label">Fund Balance / Exp.</div>
+            <div class="pc-val">30.9%</div>
+            <div class="pc-sub">GFOA min: 16.7% ✓</div>
+          </div>
+          <div class="pc-cell">
+            <div class="pc-label">Fed Funds Rate</div>
+            <div class="pc-val">3.50–3.75%</div>
+            <div class="pc-sub">Held Mar 18, 2026</div>
+          </div>
+          <div class="pc-cell">
+            <div class="pc-label">10-yr Treasury (Apr 2)</div>
+            <div class="pc-val">4.31%</div>
+            <div class="pc-sub">2s/10s: +43bps</div>
+          </div>
+          <div class="pc-cell">
+            <div class="pc-label">10-yr AAA MMD TEY (37%)</div>
+            <div class="pc-val">4.90%</div>
+            <div class="pc-sub">MMD ~3.09% · Muni/Tsy: ~72%</div>
+          </div>
+        </div>
+
+        <div class="pc-bottom">
+          <div class="pc-panel str">
+            <div class="pc-panel-title">Top 3 Strengths</div>
+            <div class="pc-item"><span class="pc-item-num">1</span><span>Constitutional unlimited property tax levy — structural invulnerability to bond payment default; Rusk County settlement guarantee ensures 100% collection</span></div>
+            <div class="pc-item"><span class="pc-item-num">2</span><span>GF unassigned balance at 30.9% of expenditures — nearly double the GFOA minimum, with $621,718 of cushion above the benchmark</span></div>
+            <div class="pc-item"><span class="pc-item-num">3</span><span>Henry Repeating Arms consolidation adds 175+ jobs and converts previously tax-exempt City properties to taxable status — concrete near-term EV catalyst</span></div>
+          </div>
+          <div class="pc-panel rsk">
+            <div class="pc-panel-title">Top 3 Risks</div>
+            <div class="pc-item"><span class="pc-item-num">1</span><span>Repeat audit material weaknesses (3 consecutive years) and continuing disclosure non-compliance (3 of 5 years) — limits ability to monitor a 20-year unrated credit</span></div>
+            <div class="pc-item"><span class="pc-item-num">2</span><span>Sewer enterprise: ($978,081) net position deficit, $1,350,684 interfund loan from GF, anticipated additional SRF borrowing — unresolved structural imbalance</span></div>
+            <div class="pc-item"><span class="pc-item-num">3</span><span>Chronic population decline (−18.9% since 2000), aging demographics, and median income at 53.9% of Wisconsin median — structural headwinds to EV and GF revenue growth</span></div>
+          </div>
+          <div class="pc-panel mkt">
+            <div class="pc-panel-title">Stress Test Summary</div>
+            <div class="pc-mkt-row"><span class="pc-mkt-label">GFOA breach (expenses flat)</span><span class="pc-mkt-val">−24.3% revenue</span></div>
+            <div class="pc-mkt-row"><span class="pc-mkt-label">GFOA breach (combined stress)</span><span class="pc-mkt-val">−20% rev, +5% exp</span></div>
+            <div class="pc-mkt-row"><span class="pc-mkt-label">Great Recession WI EV decline</span><span class="pc-mkt-val">~10–18% peak-to-trough</span></div>
+            <div class="pc-mkt-row"><span class="pc-mkt-label">Bond payment impairment risk</span><span class="pc-mkt-val" style="color:var(--good-border);">Remote</span></div>
+            <div class="pc-mkt-row"><span class="pc-mkt-label">Overall assessment</span><span class="pc-mkt-val">Comfortable</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> This memorandum is for internal analytical purposes only and does not constitute investment advice or a solicitation to buy or sell any security. All analysis is based on publicly available information, including the Official Statement dated March 23, 2026, the FY2024 audited financial statements prepared by CliftonLarsonAllen LLP, and publicly available market and economic data, and is subject to the limitations and data gaps noted herein. Arithmetic has been independently verified through a QA pass; any remaining errors are noted as unresolved flags. The GFOA minimum threshold has been corrected to $730,851 (16.7% × $4,377,549) and the GF fund balance GFOA breach threshold has been corrected to 24.3% per the Section 7 QA review. Past performance is not indicative of future results. The underlying credit is not rated by any nationally recognized statistical rating organization; the S&amp;P AA rating applies to the insured bonds only and reflects the creditworthiness of Assured Guaranty Municipal Corp., not the City of Ladysmith. This analysis is current as of April 3, 2026, and is subject to change as new information becomes available.
+  </div>
+
+</div><!-- end .main -->
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const el = document.documentElement;
+  const pct = el.scrollTop / (el.scrollHeight - el.clientHeight) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+});
+
+// Active nav link
+const sections = document.querySelectorAll('[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
